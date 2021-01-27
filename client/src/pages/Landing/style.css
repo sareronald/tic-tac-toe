@@ -1,0 +1,13 @@
+#landingPage {
+  background-color: #0094ff;
+  width: 100%;
+  height: 100vh;
+}
+
+#logo {
+  max-width: 200px;
+}
+
+#info {
+  font-size: 1.5em;
+}
