@@ -1,34 +1,52 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// Requiring bcrypt for password hashing. Using bcryptjs version as bcrypt module sometimes causes errors on Windows machines.
+const bcrypt = require("bcryptjs");
+// import bcrypt from "bcryptjs";
 
-// Create Schema
-const UserSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  userType: {
-    type: String,
-    enum: ["student", "teacher"],
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-});
+// Creating User model
+module.export = function (sequelize, DataTypes) {
+  const User = sequelize.define("User", {
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+    // The password cannot be null
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userType: {
+      type: DataTypes.ENUM("student", "teacher"),
+      allowNull: false,
+    },
+  });
+};
 
-const User = mongoose.model("users", UserSchema);
+User.associate = function (models) {
+  // Associating tictactoes with author/teacher.
+  // Teacher 'has many' tic-tac-toes
+  User.hasMany(models.Tictactoe, {
+    foreignKey: "authorID",
+    onDelete: "cascade",
+  });
 
-module.exports = User;
+  // do students need to have many tic-tac-toes or is this a COULD/WOULD?
+  return User;
+};
