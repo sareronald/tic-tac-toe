@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS tictactoeDB;
+
+CREATE DATABASE tictactoeDB;
