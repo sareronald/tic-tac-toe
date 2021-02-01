@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
   });
-  // Tictactoe.associate = ???
+  //  Link Tictactoe to a teacher via authorID
   Tictactoe.associate = function (models) {
     Tictactoe.belongsTo(models.User, {
       as: "teacher",
@@ -23,7 +23,6 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Tictactoe.hasMany(models.Activity, {
-      foreignKey: "tictactoeID",
       onDelete: "cascade",
     });
   };

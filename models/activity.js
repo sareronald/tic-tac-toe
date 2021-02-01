@@ -9,12 +9,13 @@ module.exports = function (sequelize, DataTypes) {
     difficulty_level: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      isInt: true,
     },
     task_description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
+        len: [1, 200],
       },
     },
     hints: {
@@ -29,6 +30,7 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: false,
   });
 
+  // Link each activity to the Tic-tac-toe it belongs to
   Activity.associate = function (models) {
     Activity.belongsTo(models.Tictactoe, {
       foreignKey: {
@@ -37,5 +39,6 @@ module.exports = function (sequelize, DataTypes) {
       },
     });
 
-  return Activity;
+    return Activity;
+  };
 };

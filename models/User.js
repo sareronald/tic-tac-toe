@@ -7,7 +7,9 @@ module.export = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
     first_name: {
       type: DataTypes.STRING,
+      // notNull: true,
       allowNull: false,
+      isAlpha: true,
       validate: {
         len: [1],
       },
@@ -15,6 +17,7 @@ module.export = function (sequelize, DataTypes) {
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
+      isAlpha: true,
       validate: {
         len: [1],
       },
@@ -28,11 +31,13 @@ module.export = function (sequelize, DataTypes) {
       },
     },
     // The password cannot be null
-    password: {
-      type: DataTypes.STRING,
+    hashedPassword: {
+      type: DataTypes.STRING(),
       allowNull: false,
+      is: /^[0-9a-f]{64}$/i,
       validate: {
         len: [6],
+      },
     },
     userType: {
       type: DataTypes.ENUM("student", "teacher"),
