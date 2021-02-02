@@ -25,13 +25,15 @@ function Navbar() {
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                {/* Add HOME LINK */}
+                <a class="nav-link" href="/">
                   Home
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="portfolio.html">
-                  Portfolio
+                {/* Add SHARE LINK */}
+                <a class="nav-link" href="/share">
+                  Share
                 </a>
               </li>
             </ul>

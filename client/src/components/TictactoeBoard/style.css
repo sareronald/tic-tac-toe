@@ -1,0 +1,67 @@
+/* .tictactoeBoard {
+  margin: 20px 50px;
+}
+
+.tictactoeBtn {
+  display: inline-block;
+  padding: 0.02em 0.02em;
+  border: 0.15em solid #ffffff;
+  margin: 0.1em;
+  border-radius: 0.1em;
+  box-sizing: border-box;
+  background-color: rgb(57, 151, 252);
+  color: #ffffff !important;
+  min-width: 200px;
+  min-height: 200px;
+} */
+/* body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+} */
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 400px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
