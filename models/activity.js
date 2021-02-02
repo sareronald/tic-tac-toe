@@ -38,7 +38,6 @@ module.exports = function (sequelize, DataTypes) {
         name: "tictactoeID",
       },
     });
-
-    return Activity;
   };
+  return Activity;
 };

@@ -12,6 +12,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
   });
+
   //  Link Tictactoe to a teacher via authorID
   Tictactoe.associate = function (models) {
     Tictactoe.belongsTo(models.User, {

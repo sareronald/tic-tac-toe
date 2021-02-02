@@ -3,18 +3,17 @@ const bcrypt = require("bcryptjs");
 // import bcrypt from "bcryptjs";
 
 // Creating User model
-module.export = function (sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
-      // notNull: true,
       allowNull: false,
       isAlpha: true,
       validate: {
         len: [1],
       },
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false,
       isAlpha: true,
@@ -44,16 +43,16 @@ module.export = function (sequelize, DataTypes) {
       allowNull: false,
     },
   });
-};
 
-User.associate = function (models) {
-  // Associating tictactoes with author/teacher.
-  // Teacher 'has many' tic-tac-toes
-  User.hasMany(models.Tictactoe, {
-    foreignKey: "authorID",
-    onDelete: "cascade",
-  });
+  User.associate = function (models) {
+    // Associating tictactoes with author/teacher.
+    // Teacher 'has many' tic-tac-toes
+    User.hasMany(models.Tictactoe, {
+      foreignKey: "authorID",
+      onDelete: "cascade",
+    });
 
-  // do students need to have many tic-tac-toes or is this a COULD/WOULD?
+    // do students need to have many tic-tac-toes or is this a COULD/WOULD?
+  };
   return User;
 };
