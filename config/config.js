@@ -1,7 +1,10 @@
+//Read and set any environment variables with the dotenv package.
+require("dotenv").config();
+
 const config = {
   development: {
     username: "root",
-    password: "",
+    password: process.env.MYSQL_PASSWORD,
     database: "tictactoeDB",
     host: "127.0.0.1",
     port: 3306,
