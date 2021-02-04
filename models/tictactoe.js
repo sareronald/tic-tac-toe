@@ -24,6 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Tictactoe.hasMany(models.Activity, {
+      foreignKey: "tictactoeID",
       onDelete: "cascade",
     });
   };

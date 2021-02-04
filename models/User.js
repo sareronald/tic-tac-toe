@@ -30,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
     // The password cannot be null
-    hashedPassword: {
+    password: {
       type: DataTypes.STRING(),
       allowNull: false,
       is: /^[0-9a-f]{64}$/i,
