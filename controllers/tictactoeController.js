@@ -3,28 +3,33 @@ const db = require("../models");
 // Defining methods for the tictactoeController
 module.exports = {
   findAll: function (req, res) {
-    db.Tictactoe.find(req.query)
+    db.tictactoe
+      .find(req.query)
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.Tictactoe.findById(req.params.id)
+    db.tictactoe
+      .findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    db.Tictactoe.create(req.body)
+    db.tictactoe
+      .create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.Tictactoe.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.tictactoe
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.Tictactoe.findById({ _id: req.params.id })
+    db.tictactoe
+      .findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
