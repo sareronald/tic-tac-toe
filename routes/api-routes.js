@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("../config/passport");
 const db = require("../models");
 const { response } = require("express");
+const tictactoeController = require("../controllers/tictactoeController");
 
 function getTeacherTictactoes(teacherId, response) {
   db.Booking.findAll({
@@ -65,7 +66,7 @@ module.exports = function (app) {
       firstName: req.user.firstName,
       lastName: req.user.lastName,
       email: req.user.email,
-      password: req.body.password,
+      hashedPassword: req.body.hashedPassword,
       userType: req.user.userType,
     })
       .then(() => {
@@ -88,6 +89,7 @@ module.exports = function (app) {
       });
     };
 
+  // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
@@ -166,7 +168,7 @@ module.exports = function (app) {
       },
     })
       .then((dbTictactoe) => {
-        res.status(200).json(dbBooking);
+        res.status(200).json(dbTictactoe);
       })
       .catch((err) => {
         res.status(401).json(err);
@@ -174,18 +176,45 @@ module.exports = function (app) {
   });
 
   //   *************************************** ACTIVITY CRUD ***************************************** //
-  // do I need
   // Route for adding an ACTIVITY
-  // app.post("/api/activity", (res, req) => {
-  //   db.Activity.create({
-
-  //   })
-
-  // });
-  // Route for editing an ACTIVITY
-  // app.put("/api/activity/:id", (req,res) => {
-  //     db.TictactoeActivity.
-  // });
+  app.post("/api/activity", (res, req) => {
+    db.Activity.create({
+      activityName: req.body.activityName,
+      difficultyLevel: req.body.difficultyLevel,
+      taskDescription: req.body.taskDescription,
+      hints: req.body.hints,
+      resources: req.body.resources,
+    })
+      .then((dbTictactoe) => {
+        res.status(200).json(dbTictactoe);
+      })
+      .catch((err) => {
+        res.status(401).json(err);
+      });
+  });
+  // Route for editing/updating an ACTIVITY. Get the updated Activity data from req.body
+  app.put("/api/activity/:id", (req, res) => {
+    db.Activity.update(
+      {
+        activityName: req.body.activityName,
+        difficultyLevel: req.body.difficultyLevel,
+        taskDescription: req.body.taskDescription,
+        hints: req.body.hints,
+        resources: req.body.resources,
+      },
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    )
+      .then((dbTictactoe) => {
+        res.status(200).json(dbTictactoe);
+      })
+      .catch((err) => {
+        res.status(401).json(err);
+      });
+  });
 
   // Route for getting an ACTIVITY in a particular tictactoe
   app.get("/api/tictactoeactivity/:id", (req, res) => {
