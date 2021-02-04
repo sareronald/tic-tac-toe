@@ -66,7 +66,7 @@ module.exports = function (app) {
       firstName: req.user.firstName,
       lastName: req.user.lastName,
       email: req.user.email,
-      hashedPassword: req.body.hashedPassword,
+      password: req.body.password,
       userType: req.user.userType,
     })
       .then(() => {
