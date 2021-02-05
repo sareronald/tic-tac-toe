@@ -15,7 +15,7 @@ const db = require("./models");
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "http://localhost:3000",
 };
 
 app.use(cors(corsOptions));
@@ -52,13 +52,8 @@ require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(" 🌎 ==> App listening on PORT " + PORT);
   });
 });
-
-// Start the API server
-// app.listen(PORT, function () {
-//   console.log(`🌎   API Server now listening on PORT ${PORT}!`);
-// });
