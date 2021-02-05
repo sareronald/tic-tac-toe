@@ -11,7 +11,7 @@ function getTeacherTictactoes(teacherId, response) {
     where: {
       authorID: teacherId,
     },
-    attributes: ["id", "tictactie_title", "tictactoe_unit"],
+    attributes: ["id", "tictactoe_title", "tictactoe_unit"],
     include: [
       {
         model: db.User,
