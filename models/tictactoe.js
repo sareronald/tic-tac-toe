@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
     Tictactoe.belongsTo(models.User, {
       as: "teacher",
       foreignKey: {
-        allowNull: false,
+        allowNull: true,
         name: "authorID",
       },
     });
