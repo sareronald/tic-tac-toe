@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   const Activity = sequelize.define(
     "Activity",
     {
-      activtyName: {
+      activityName: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: { len: [1] },

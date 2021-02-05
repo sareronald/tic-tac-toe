@@ -1,6 +1,6 @@
 // Requiring bcrypt for password hashing. Using bcryptjs version as bcrypt module sometimes causes errors on Windows machines.
 const bcrypt = require("bcryptjs");
-// import bcrypt from "bcryptjs";
+const { Sequelize } = require(".");
 
 // Creating User model
 module.exports = function (sequelize, DataTypes) {
@@ -8,7 +8,6 @@ module.exports = function (sequelize, DataTypes) {
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
-      isAlpha: true,
       validate: {
         len: [1],
       },
@@ -16,7 +15,6 @@ module.exports = function (sequelize, DataTypes) {
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,
-      isAlpha: true,
       validate: {
         len: [1],
       },
@@ -31,9 +29,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     // The password cannot be null
     password: {
-      type: DataTypes.STRING(),
+      type: DataTypes.STRING,
       allowNull: false,
-      is: /^[0-9a-f]{64}$/i,
       validate: {
         len: [6],
       },
@@ -41,6 +38,16 @@ module.exports = function (sequelize, DataTypes) {
     userType: {
       type: DataTypes.ENUM("student", "teacher"),
       allowNull: false,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
     },
   });
 
@@ -54,5 +61,21 @@ module.exports = function (sequelize, DataTypes) {
 
     // do students need to have many tic-tac-toes or is this a COULD/WOULD?
   };
+
+  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  User.addHook("beforeCreate", (user) => {
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
+  });
+
   return User;
 };
