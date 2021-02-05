@@ -22,17 +22,17 @@ function getTeacherTictactoes(teacherId, response) {
         model: db.Activity,
         attributes: [
           "id",
-          "activity_name",
-          "difficulty_level",
-          "task_description",
+          "activityName",
+          "difficultyLevel",
+          "taskDescription",
           "hints",
           "resources",
         ],
       },
     ],
   })
-    .then((dbBookings) => {
-      response.status(200).json(dbBookings);
+    .then((dbTictactoe) => {
+      response.status(200).json(dbTictactoe);
     })
     .catch((err) => {
       response.status(401).json(err);
@@ -46,7 +46,7 @@ module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("api/login", passport.authenticate("local"), (req, res) => {
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back password is not a good idea, but other information can be validated
     res.json({
       id: req.user.id,
@@ -63,11 +63,11 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
-      email: req.user.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
       password: req.body.password,
-      userType: req.user.userType,
+      userType: req.body.userType,
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -96,7 +96,7 @@ module.exports = function (app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
+  app.get("/api/userData", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -217,7 +217,7 @@ module.exports = function (app) {
   });
 
   // Route for getting an ACTIVITY in a particular tictactoe
-  app.get("/api/tictactoeactivity/:id", (req, res) => {
+  app.get("/api/activity/:id", (req, res) => {
     db.TictactoeActivity.findAll({
       attributes: ["UserId"],
       where: {
