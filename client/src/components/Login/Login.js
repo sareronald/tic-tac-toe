@@ -36,10 +36,15 @@ function Login() {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row" style={{ paddingTop: "80px" }}>
         <div className="col-md-6 mt-5 mx-auto">
           <form noValidate onSubmit={handleSubmit}>
-            <h1 className="h3 mb-3 font-weight normal">Log in</h1>
+            <h1
+              className="h2 mb-3 font-weight normal"
+              style={{ color: "#ffffff" }}
+            >
+              Log in
+            </h1>
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <input
@@ -65,14 +70,20 @@ function Login() {
             <button type="submit" className="btn btn-lg btn-primary btn-block">
               Log in
             </button>
+            <hr />
+            <div>
+              {/* add a link to the SIGNUP PAGE HERE */}
+              <p className="text-center">
+                Don't have an account?{" "}
+                <a
+                  href="/signup"
+                  style={{ color: "#ffffff", fontWeight: "bolder" }}
+                >
+                  Sign up
+                </a>
+              </p>
+            </div>
           </form>
-        </div>
-        <hr />
-        <div>
-          {/* add a link to the SIGNUP PAGE HERE */}
-          <p>
-            Don't have an account? <a href="#">Sign up</a>
-          </p>
         </div>
       </div>
     </div>

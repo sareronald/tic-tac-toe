@@ -71,7 +71,12 @@ function Signup(props) {
       <div className="row" style={{ paddingTop: "80px" }}>
         <div className="mx-auto mt-5 col-md-6">
           <form noValidate onSubmit={onSubmit}>
-            <h1 className="mb-3 h3 font-weight normal">Please Sign in</h1>
+            <h1
+              className="mb-3 h2 font-weight normal"
+              style={{ color: "#ffffff" }}
+            >
+              Please Sign up
+            </h1>
             <div className="form-group">
               <label htmlFor="first_name">First Name</label>
               <input
@@ -132,14 +137,6 @@ function Signup(props) {
                 {signupState.errors["password"]}
               </span>
             </div>
-            {/* <DropdownButton
-              alignRight
-              title="Dropdown right"
-              id="dropdown-menu-align-right"
-            >
-              <Dropdown.Item eventKey="Student">Student</Dropdown.Item>
-              <Dropdown.Item eventKey="Teacher">Teacher</Dropdown.Item>
-            </DropdownButton> */}
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">
                 Select User Type
@@ -164,7 +161,13 @@ function Signup(props) {
             <hr />
             <div>
               <p className="text-center">
-                Already have an account <a href="/login">Login</a>
+                Already have an account{" "}
+                <a
+                  href="/login"
+                  style={{ color: "#ffffff", fontWeight: "bolder" }}
+                >
+                  Login
+                </a>
               </p>
             </div>
           </form>
