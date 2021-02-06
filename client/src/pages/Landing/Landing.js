@@ -37,7 +37,7 @@ class Landing extends Component {
               <Link to={"/login"} type="button" className="logBtn">
                 LOGIN
               </Link>
-              <Link type="button" className="logBtn" class="logBtn">
+              <Link to={"/signup"} type="button" className="logBtn">
                 SIGNUP
               </Link>
             </div>

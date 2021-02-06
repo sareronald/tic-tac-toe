@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { signupUser } from "../../utils/userFuctions";
+// import { Navbar } from "../Navbar/Navbar";
 
 function Signup(props) {
   const history = useHistory();
@@ -10,7 +11,7 @@ function Signup(props) {
     lastName: "",
     email: "",
     password: "",
-    userType: "teacher",
+    userType: "",
     errors: {},
     formIsValid: true,
   });
@@ -66,7 +67,8 @@ function Signup(props) {
 
   return (
     <div className="container">
-      <div className="row">
+      {/* <Navbar /> */}
+      <div className="row" style={{ paddingTop: "80px" }}>
         <div className="mx-auto mt-5 col-md-6">
           <form noValidate onSubmit={onSubmit}>
             <h1 className="mb-3 h3 font-weight normal">Please Sign in</h1>
@@ -130,17 +132,42 @@ function Signup(props) {
                 {signupState.errors["password"]}
               </span>
             </div>
+            {/* <DropdownButton
+              alignRight
+              title="Dropdown right"
+              id="dropdown-menu-align-right"
+            >
+              <Dropdown.Item eventKey="Student">Student</Dropdown.Item>
+              <Dropdown.Item eventKey="Teacher">Teacher</Dropdown.Item>
+            </DropdownButton> */}
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect1">
+                Select User Type
+              </label>
+              <select
+                type="text"
+                refs="userType"
+                className="form-control"
+                name="userType"
+                placeholder="Please Choose..."
+                value={signupState.userType}
+                onChange={onChange}
+              >
+                <option value="">Please choose...</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+              </select>
+            </div>
             <button type="submit" className="btn btn-lg btn-primary btn-block">
               Signup
             </button>
+            <hr />
+            <div>
+              <p className="text-center">
+                Already have an account <a href="/login">Login</a>
+              </p>
+            </div>
           </form>
-        </div>
-        <hr />
-        <div>
-          {/* add a link to the SIGNUP PAGE HERE */}
-          <p>
-            Already have an account <a href="#">Login</a>
-          </p>
         </div>
       </div>
     </div>
