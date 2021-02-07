@@ -1,6 +1,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 :root {
@@ -12,18 +16,15 @@
 html,
 body {
   --hue: var(--hue-neutral);
-  background-color: #ffffff;
+  background-color: #087fff;
   height: 100%;
   margin: 0;
 }
 
 h1 {
-  font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: #ffffff;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
   margin: 0;
-  text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 3em;
@@ -39,7 +40,6 @@ h3 {
   margin-left: 10px;
   text-align: left;
   padding-top: 20px;
-  /* padding-bottom: 20px; */
   font-size: 28px;
 }
 
@@ -60,7 +60,7 @@ p {
 @media screen and (min-width: 225px) {
   /* The body background color will be #ff0000 */
   body {
-    background-color: #ff0000;
+    background-color: #087fff;
   }
 
   /* The container width will be 225px */
@@ -93,7 +93,7 @@ p {
 @media screen and (min-width: 320px) {
   /* The body's bg color will be #4caf50 */
   body {
-    background-color: #4caf50;
+    background-color: #087fff;
   }
   */ h1 {
     text-align: left;
@@ -129,7 +129,7 @@ p {
   */
     /* The body's bg color will be #fca203 */
     body {
-    background-color: rgb(57, 151, 252);
+    background-color: #087fff;
   }
 
   h1 {
@@ -163,7 +163,7 @@ p {
 @media screen and (min-width: 768px) {
   /* The body's bg color will be #e803fc */
   body {
-    background-color: rgb(57, 151, 252);
+    background-color: #087fff;
   }
 
   h1 {
@@ -197,7 +197,7 @@ p {
 @media screen and (min-width: 992px) {
   /* The body's bg color will be #03fcf2 */
   body {
-    background-color: rgb(57, 151, 252);
+    background-color: #087fff;
   }
 
   h1 {
