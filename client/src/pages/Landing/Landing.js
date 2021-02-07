@@ -23,22 +23,21 @@ class Landing extends Component {
 
           <div className="col-md-4 landingPageTextDiv text-center">
             <div className="text-center">
-              <h1 className="infoTitle">TIC-TAC-TOE</h1>
-              <h2 className="infoByline">Everyone learns differently.</h2>
+              <h2 className="infoTitle">
+                Create differentiated learning experiences
+              </h2>
+              {/* <h2 className="infoByline">Everyone learns differently.</h2> */}
               <p id="info">
                 TIC-TAC-TOE is a learning tool that allows teachers to create
                 interactive tic-tac-toe boards to add differentiation to their
                 classroom - at school, at home or anywhere in an online learning
                 environment that encourages success for all. To get started,
-                just click on a button below.
+                just click on the button below.
               </p>
             </div>
             <div className="row justify-content-center">
-              <Link to={"/login"} type="button" className="logBtn">
-                LOGIN
-              </Link>
               <Link to={"/signup"} type="button" className="logBtn">
-                SIGNUP
+                GET STARTED
               </Link>
             </div>
           </div>

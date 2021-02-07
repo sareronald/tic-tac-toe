@@ -36,11 +36,24 @@ function Login() {
 
   return (
     <div className="container">
-      <div className="row" style={{ paddingTop: "80px" }}>
-        <div className="col-md-6 mt-5 mx-auto">
-          <form noValidate onSubmit={handleSubmit}>
+      <div className="row" style={{ paddingTop: "50px" }}>
+        <div
+          className="col-md-6 mt-5 mx-auto"
+          style={{
+            backgroundColor: "#3997FC",
+            border: "1px solid rgb(0,0,0,0.1)",
+            borderRadius: "4px",
+          }}
+        >
+          <form
+            noValidate
+            onSubmit={handleSubmit}
+            style={{
+              padding: "20px",
+            }}
+          >
             <h1
-              className="h2 mb-3 font-weight normal"
+              className="h2 mb-3 font-weight normal text-center"
               style={{ color: "#ffffff" }}
             >
               Log in
@@ -67,9 +80,11 @@ function Login() {
                 onChange={onChange}
               />
             </div>
-            <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Log in
-            </button>
+            <div className="text-center">
+              <button type="submit" className="logBtn">
+                Log in
+              </button>
+            </div>
             <hr />
             <div>
               {/* add a link to the SIGNUP PAGE HERE */}

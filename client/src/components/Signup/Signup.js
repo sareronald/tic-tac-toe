@@ -68,12 +68,25 @@ function Signup(props) {
   return (
     <div className="container">
       {/* <Navbar /> */}
-      <div className="row" style={{ paddingTop: "80px" }}>
-        <div className="mx-auto mt-5 col-md-6">
-          <form noValidate onSubmit={onSubmit}>
+      <div className="row" style={{ paddingTop: "50px" }}>
+        <div
+          className="mx-auto mt-5 col-md-6"
+          style={{
+            backgroundColor: "#3997FC",
+            borderRadius: "4px",
+            border: "1px solid rgb(0,0,0,0.1)",
+          }}
+        >
+          <form
+            noValidate
+            onSubmit={onSubmit}
+            style={{
+              padding: "20px",
+            }}
+          >
             <h1
               className="mb-3 h2 font-weight normal"
-              style={{ color: "#ffffff" }}
+              style={{ color: "#ffffff", textAlign: "center" }}
             >
               Please Sign up
             </h1>
@@ -155,18 +168,17 @@ function Signup(props) {
                 <option value="teacher">Teacher</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Signup
-            </button>
+            <div className="text-center">
+              <button type="submit" className="logBtn">
+                Signup
+              </button>
+            </div>
             <hr />
             <div>
               <p className="text-center">
-                Already have an account{" "}
-                <a
-                  href="/login"
-                  style={{ color: "#ffffff", fontWeight: "bolder" }}
-                >
-                  Login
+                Already have an account,{" "}
+                <a href="/login" style={{ color: "#ffffff" }}>
+                  Log In.
                 </a>
               </p>
             </div>

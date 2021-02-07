@@ -55,6 +55,43 @@ p {
   font-size: 20px;
 }
 
+/* Buttons */
+.logBtn {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0.5em 2em;
+  border-radius: 0.06em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: #087fff;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.logBtn:hover {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background-color: rgb(237, 96, 26);
+  text-decoration: none;
+  /* background: rgb(252, 161, 128); */
+  /* border: 0.15em solid rgb(237, 96, 26); */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+}
+
 /* These rules take effect when the browser's width */
 /* is either 225px or more. */
 @media screen and (min-width: 225px) {
