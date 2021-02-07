@@ -73,6 +73,38 @@ h2.infoByline {
   transition: all 0.3s ease 0s;
 }
 
+.startBtn {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0.5em 2em;
+  border-radius: 0.06em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: rgb(237, 96, 26);
+  color: #ffffff !important;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+}
+
+.startBtn:hover {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background-color: rgb(237, 96, 26);
+  text-decoration: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+}
+
 /* rotating cube */
 @-moz-keyframes rotate-imasters-cube {
   0% {
