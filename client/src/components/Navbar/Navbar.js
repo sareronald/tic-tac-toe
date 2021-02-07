@@ -1,42 +1,47 @@
 import React from "react";
 import "./style.css";
-import logo from "../../assets/images/ttt-logo.png";
+// import logo from "../../assets/images/ttt-logo.png";
 
 function Navbar() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-3 nav ">
-        <div className="container">
-          <img src={logo} alt="logo" className="header-image" />
-          <a className="navbar-brand nav-title" href="/">
-            TIC-TAC-TOE
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          {/* -- Collect the nav links, forms, and other content for toggling -- */}
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                {/* Add HOME LINK */}
-                <a class="nav-link" href="/">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                {/* Add SHARE LINK */}
-                <a class="nav-link" href="/share">
-                  Share
-                </a>
-              </li>
-            </ul>
+      <nav className="navbarItems navbar navbar-expand-md navbar-light navbar-fixed-top">
+        <div className="container-fluid">
+          <div className="nav-title">
+            <h1>TIC-TAC-TOE</h1>
+          </div>
+          <div className="menu-icon">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#account"
+              aria-controls="navbarResponsive"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            {/* -- Collect the nav links, forms, and other content for toggling -- */}
+            <div id="account">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-links" href="/signup">
+                    SIGN UP
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-links" href="/login">
+                    LOG IN
+                  </a>
+                </li>
+                <li className="toggle">
+                  <a href="/">
+                    <i className="fas fa-bars"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>

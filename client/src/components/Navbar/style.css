@@ -1,17 +1,67 @@
-.nav {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+.navbarItems {
+  background-color: #087fff;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
 .nav-title {
-  font-size: 2em;
+  color: #ffffff;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 2.1rem;
   font-weight: 800;
   font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 2px;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
-  float: left;
+  left: 20px;
+  margin-top: 20px;
 }
 
-.header-image {
-  max-height: 60px;
+/* Buttons */
+#account {
+  margin-top: 30px;
 }
+
+.nav-links {
+  list-style: none;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  width: 70vw;
+  justify-content: end;
+  border-radius: 0.06em;
+  padding: 0.35em 1.2em;
+  border: 0.15em solid #ffffff;
+  margin: 10em 0.5em;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: rgb(57, 151, 252);
+  color: #ffffff !important;
+  text-transform: uppercase;
+  /* display: inline-block; */
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links:hover {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  /* letter-spacing: 3px; */
+  background-color: rgb(237, 96, 26);
+  /* background: rgb(252, 161, 128); */
+  /* border: 0.15em solid rgb(237, 96, 26); */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+}
+
+/* .header-image {
+  max-height: 60px;
+} */
