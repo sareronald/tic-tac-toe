@@ -136,10 +136,10 @@ p {
     text-align: left;
   }
 
-  .logoImage {
+  /* .logoImage {
     width: 250px;
     height: 60px;
-  }
+  } */
 
   /* The container width will be 576px */
   .container {
@@ -150,15 +150,15 @@ p {
     line-height: 150%;
     text-align: justify;
   }
-  .navLogo {
+  /* .navLogo {
     margin-top: 10px;
-  }
-  #currentTime {
+  } */
+  /* #currentTime {
     margin-top: 0;
   }
   .labelText {
     font-size: 20px;
-  }
+  } */
 }
 /* These rules take effect when the browser's width */
 /* is either 576px or more. */
@@ -169,9 +169,9 @@ p {
     background-color: #087fff;
   }
 
-  h1 {
+  /* h1 {
     font-size: 28px;
-  }
+  } */
 
   p {
     font-size: 14px;
@@ -179,21 +179,21 @@ p {
     text-align: justify;
   }
 
-  .logoImage {
+  /* .logoImage {
     width: 300px;
     height: 70px;
-  }
+  } */
 
   .form-group,
   .form-control {
     font-size: 8px;
   }
-  .navLogo {
+  /* .navLogo {
     margin-top: 10px;
   }
   #currentTime {
     margin-top: 0;
-  }
+  } */
 }
 /* These rules take effect when the browser's width */
 /* is either 768px or more. */
@@ -203,9 +203,9 @@ p {
     background-color: #087fff;
   }
 
-  h1 {
+  /* h1 {
     font-size: 30px;
-  }
+  } */
 
   p {
     font-size: 15px;
@@ -213,21 +213,21 @@ p {
     text-align: justify;
   }
 
-  .logoImage {
+  /* .logoImage {
     width: 350px;
     height: 80px;
-  }
+  } */
 
   .form-group,
   .form-control {
     font-size: 12px;
   }
-  .navLogo {
+  /* .navLogo {
     margin-top: 0;
-  }
-  #currentTime {
+  } */
+  /* #currentTime {
     margin-top: 30px;
-  }
+  } */
 }
 /* These rules take effect when the browser's width */
 /* is either 992px or more. */
@@ -237,9 +237,9 @@ p {
     background-color: #087fff;
   }
 
-  h1 {
+  /* h1 {
     font-size: 35px;
-  }
+  } */
 
   p {
     font-size: 18px;
@@ -247,21 +247,21 @@ p {
     text-align: justify;
   }
 
-  .logoImage {
+  /* .logoImage {
     width: 400px;
     height: 90px;
-  }
+  } */
 
   .form-group,
   .form-control {
     font-size: 15px;
   }
-  .navLogo {
+  /* .navLogo {
     margin-top: 0;
   }
   #currentTime {
     margin-top: 30px;
-  }
+  } */
 }
 
 /* Extra small (xs) devices (portrait phones, less than 576px) */
