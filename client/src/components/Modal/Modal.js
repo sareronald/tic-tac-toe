@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
+import ModalActivityForm from "./ModalActivityForm";
 import { MdClose } from "react-icons/md";
 import "./style.css";
 
@@ -55,10 +56,7 @@ function Modal({ showModal, setShowModal }) {
           <animated.div style={modalAnimation}>
             <div className="modalWrapper" showModal={showModal}>
               <div className="modalContent">
-                <h1>Activty Modal</h1>
-                <h3>Task Description</h3>
-                <p>write a list of things you know...</p>
-                <button>SUBMIT</button>
+                <ModalActivityForm />
               </div>
               <CloseModalButton
                 aria-label="Close modal"

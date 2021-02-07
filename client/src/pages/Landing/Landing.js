@@ -36,7 +36,7 @@ class Landing extends Component {
               </p>
             </div>
             <div className="row justify-content-center">
-              <Link to={"/signup"} type="button" className="logBtn">
+              <Link to={"/signup"} type="button" className="startBtn">
                 GET STARTED
               </Link>
             </div>
