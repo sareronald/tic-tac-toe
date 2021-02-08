@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { signupUser } from "../../utils/userFuctions";
-// import { Navbar } from "../Navbar/Navbar";
+import { useHistory } from "react-router-dom";
+import { Navbar } from "../Navbar/Navbar";
 
 function Signup(props) {
   const history = useHistory();
@@ -66,124 +66,126 @@ function Signup(props) {
   };
 
   return (
-    <div className="container">
-      {/* <Navbar /> */}
-      <div className="row" style={{ paddingTop: "50px" }}>
-        <div
-          className="mx-auto mt-5 col-md-6"
+    <div
+      style={{
+        margin: "auto",
+        width: "50%",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        marginTop: "60px",
+      }}
+    >
+      <div
+        className="signupDiv"
+        style={{
+          backgroundColor: "#3997FC",
+          borderRadius: "4px",
+          border: "1px solid rgb(0,0,0,0.1)",
+        }}
+      >
+        <form
+          noValidate
+          onSubmit={onSubmit}
           style={{
-            backgroundColor: "#3997FC",
-            borderRadius: "4px",
-            border: "1px solid rgb(0,0,0,0.1)",
+            padding: "20px",
           }}
         >
-          <form
-            noValidate
-            onSubmit={onSubmit}
-            style={{
-              padding: "20px",
-            }}
+          <h1
+            className="mb-3 h2 font-weight normal"
+            style={{ color: "#ffffff", textAlign: "center" }}
           >
-            <h1
-              className="mb-3 h2 font-weight normal"
-              style={{ color: "#ffffff", textAlign: "center" }}
+            Please Sign up
+          </h1>
+          <div className="form-group">
+            <label htmlFor="first_name">First Name</label>
+            <input
+              type="text"
+              refs="firstName"
+              className="form-control"
+              name="firstName"
+              placeholder="Enter First Name"
+              value={signupState.firstName}
+              onChange={onChange}
+            />
+            <span style={{ color: "red" }}>
+              {signupState.errors["firstName"]}
+            </span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              refs="lastName"
+              className="form-control"
+              name="lastName"
+              placeholder="Enter Last Name"
+              value={signupState.lastName}
+              onChange={onChange}
+            />
+            <span style={{ color: "red" }}>
+              {signupState.errors["lastName"]}
+            </span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              refs="email"
+              className="form-control"
+              name="email"
+              placeholder="Enter Email"
+              value={signupState.email}
+              onChange={onChange}
+            />
+            <span style={{ color: "red" }}>{signupState.errors["email"]}</span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              refs="password"
+              className="form-control"
+              name="password"
+              placeholder="Enter Password"
+              value={signupState.password}
+              onChange={onChange}
+            />
+            <span style={{ color: "red" }}>
+              {signupState.errors["password"]}
+            </span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Select User Type</label>
+            <select
+              type="text"
+              refs="userType"
+              className="form-control"
+              name="userType"
+              placeholder="Please Choose..."
+              value={signupState.userType}
+              onChange={onChange}
             >
-              Please Sign up
-            </h1>
-            <div className="form-group">
-              <label htmlFor="first_name">First Name</label>
-              <input
-                type="text"
-                refs="firstName"
-                className="form-control"
-                name="firstName"
-                placeholder="Enter First Name"
-                value={signupState.firstName}
-                onChange={onChange}
-              />
-              <span style={{ color: "red" }}>
-                {signupState.errors["firstName"]}
-              </span>
-            </div>
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                refs="lastName"
-                className="form-control"
-                name="lastName"
-                placeholder="Enter Last Name"
-                value={signupState.lastName}
-                onChange={onChange}
-              />
-              <span style={{ color: "red" }}>
-                {signupState.errors["lastName"]}
-              </span>
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                refs="email"
-                className="form-control"
-                name="email"
-                placeholder="Enter Email"
-                value={signupState.email}
-                onChange={onChange}
-              />
-              <span style={{ color: "red" }}>
-                {signupState.errors["email"]}
-              </span>
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                refs="password"
-                className="form-control"
-                name="password"
-                placeholder="Enter Password"
-                value={signupState.password}
-                onChange={onChange}
-              />
-              <span style={{ color: "red" }}>
-                {signupState.errors["password"]}
-              </span>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleFormControlSelect1">
-                Select User Type
-              </label>
-              <select
-                type="text"
-                refs="userType"
-                className="form-control"
-                name="userType"
-                placeholder="Please Choose..."
-                value={signupState.userType}
-                onChange={onChange}
-              >
-                <option value="">Please choose...</option>
-                <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
-              </select>
-            </div>
-            <div className="text-center">
-              <button type="submit" className="logBtn">
-                Signup
-              </button>
-            </div>
-            <hr />
-            <div>
-              <p className="text-center">
-                Already have an account,{" "}
-                <a href="/login" style={{ color: "#ffffff" }}>
-                  Log In.
-                </a>
-              </p>
-            </div>
-          </form>
-        </div>
+              <option value="">Please choose...</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
+          <div className="text-center">
+            <button type="submit" className="logBtn">
+              Signup
+            </button>
+          </div>
+          <hr />
+          <div>
+            <p className="text-center">
+              Already have an account,{" "}
+              <a href="/login" style={{ color: "#ffffff" }}>
+                Log In.
+              </a>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   );
