@@ -50,7 +50,7 @@ function Modal({ showModal, setShowModal }) {
   }, [keyPress]);
 
   return (
-    <div>
+    <div className="activityModal">
       {showModal ? (
         <div className="modalBackground" ref={modalRef} onClick={closeModal}>
           <animated.div style={modalAnimation}>

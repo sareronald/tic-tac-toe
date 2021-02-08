@@ -1,0 +1,39 @@
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.squareBtn {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 400px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 170px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 170px;
+  z-index: 2;
+}
+
+.squareBtn:focus {
+  outline: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.instructions {
+  z-index: 1;
+}
+
+.activityModal {
+  z-index: 10;
+}

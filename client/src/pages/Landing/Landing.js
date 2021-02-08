@@ -1,22 +1,26 @@
 import React, { Component } from "react";
+import Navbar from "../Landing/Landing";
 import "./style.css";
 // import logo from "../../assets/images/ttt-logo.png";
 import { Link } from "react-router-dom";
 
 class Landing extends Component {
   render() {
+    <div>
+      <Navbar />
+    </div>;
     return (
       <div id="landingPage" className="container-fluid">
         <div className="row">
           <div className="col-md-6 center-cube">
             <div id="container">
               <div id="imasters-cube">
-                <div class="front"></div>
-                <div class="back"></div>
-                <div class="top"></div>
-                <div class="right"></div>
-                <div class="bottom"></div>
-                <div class="left"></div>
+                <div className="front"></div>
+                <div className="back"></div>
+                <div className="top"></div>
+                <div className="right"></div>
+                <div className="bottom"></div>
+                <div className="left"></div>
               </div>
             </div>
           </div>

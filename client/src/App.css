@@ -46,13 +46,13 @@ h3 {
 p {
   font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-  color: #ffffff;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
-  margin-left: 10px;
+  /* color: #ffffff; */
+  /* text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6); */
+  /* margin-l eft: 10px; */
   text-align: center;
   /* padding-top: 20px; */
   /* padding-bottom: 20px; */
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 /* Buttons */
