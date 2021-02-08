@@ -34,7 +34,7 @@ ul {
   margin-bottom: 10px;
 }
 
-.square {
+.squareBtn {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -49,7 +49,7 @@ ul {
   width: 34px;
 }
 
-.square:focus {
+.squareBtn:focus {
   outline: none;
 }
 
@@ -57,9 +57,10 @@ ul {
   background: #ddd;
 }
 
-.game {
+.container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .game-info {
