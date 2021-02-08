@@ -5,6 +5,7 @@
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
+const logger = require("morgan");
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -18,8 +19,8 @@ const corsOptions = {
   origin: "http://localhost:3000",
 };
 
-app.use(cors(corsOptions));
-
+app.use(cors());
+app.use(logger("dev"));
 // const routes = require("./routes");
 
 // Define middleware here
