@@ -28,7 +28,7 @@ function Login() {
     try {
       await loginUser(user);
       // console.log(response);
-      history.push("/tictactoe");
+      history.push("/dashboard");
     } catch (error) {
       console.log(error);
     }
