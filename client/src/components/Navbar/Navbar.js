@@ -1,52 +1,74 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useAppContext } from "../../utils/AppContext";
+
 import "./style.css";
 // import logo from "../../assets/images/ttt-logo.png";
 
 function Navbar() {
+  const history = useHistory();
+  const [state, dispatch] = useAppContext();
+
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    // logout(dispatch);
+    history.push("/");
+  };
+
+  const loginRegLink = (
+    <ul className="navbar-nav list-group list-group-horizontal">
+      <li>
+        <Link className="nav-links" to="/login">
+          LOGIN
+        </Link>
+      </li>
+      <li>
+        <Link className="nav-links" to="/signup">
+          SIGNUP
+        </Link>
+      </li>
+    </ul>
+  );
+  const userLink = (
+    <ul className="navbar-nav list-group list-group-horizontal">
+      <li>
+        <Link className="mb-1 mr-1 btn btn-sm active" to="/">
+          HOME
+        </Link>
+      </li>
+      <li>
+        <Link className="mb-1 mr-1 btn btn-sm active" to="/dashboard">
+          DASHBOARD
+        </Link>
+      </li>
+      <li>
+        <button
+          className="btn btn-sm active"
+          id="logoutBtn"
+          data-toggle="modal"
+          data-target="#logoutModal"
+          onClick={handleLogOut}
+        >
+          <div>LOGOUT</div>
+        </button>
+      </li>
+    </ul>
+  );
+
   return (
-    <header>
-      <nav className="navbarItems navbar navbar-expand-md navbar-light navbar-fixed-top">
-        <div className="container-fluid">
-          <div className="nav-title">
-            <h1>TIC-TAC-TOE</h1>
-          </div>
-          {/* <div className="menu-icon"> */}
-          <button
-            className="navbar-toggler custom-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#account"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span
-              className="navbar-toggler-icon"
-              style={{ borderColor: "#FF66CB" }}
-            ></span>
-          </button>
-          {/* -- Collect the nav links, forms, and other content for toggling -- */}
-          <div className="collapse navbar-collapse" id="account">
-            <ul class="navbar-nav ml-auto my-2 my-lg-0">
-              <li class="nav-item">
-                <a class="nav-links" href="/signup">
-                  SIGN UP
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-links" href="/login">
-                  LOG IN
-                </a>
-              </li>
-              <li className="toggle">
-                <a href="/"></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {/* </div> */}
-      </nav>
-    </header>
+    <nav className="navbarItems navbar navbar-expand-md navbar-light navbar-fixed-top">
+      <div className="nav-title-div">
+        <a href="/" className="nav-title">
+          TIC-TAC-TOE
+        </a>
+      </div>
+      <div
+        className="collapse navbar-collapse d-flex justify-content-end"
+        id="navbar1"
+      >
+        {state.isAuthenticated ? userLink : loginRegLink}
+      </div>
+    </nav>
   );
 }
 

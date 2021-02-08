@@ -1,3 +1,7 @@
+.nav-title-div {
+  float: left;
+}
+
 .navbarItems {
   background-color: #087fff;
   height: 80px;
@@ -12,20 +16,26 @@
   color: #ffffff;
   margin-left: 20px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 2.3rem;
   font-weight: 800;
   font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 2px;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
-  left: 20px;
-  margin-top: 20px;
 }
 
-/* Buttons */
-#account {
-  margin-top: 30px;
+.nav-title:hover {
+  text-decoration: none;
+  color: #ffffff;
 }
+/* .nav-title-div {
+  margin-top: 30px;
+} */
+
+/* Buttons */
+/* #account {
+  margin-top: 30px;
+} */
 
 .nav-links {
   list-style: none;
