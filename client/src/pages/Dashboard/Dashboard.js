@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 // import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import TictactoeCard from "../../components/TictactoeCard/TictactoeCard";
 import "./style.css";
 
 function DashBoard() {
@@ -26,7 +27,7 @@ function DashBoard() {
 
   const newGrid = (newTictactoeData) => {
     console.log(newTictactoeData);
-    return axios.post("http://localhost:3001/api/tictactoe", {
+    return axios.post("/api/tictactoe", {
       tictactoe_title: newTictactoeData.tictactoe_title,
       unit_title: newTictactoeData.unit_title,
     });
@@ -49,7 +50,62 @@ function DashBoard() {
   return (
     <div className="pl-0 container-fluid">
       <div className="row" style={{ padding: "40px" }}>
-        <div className="col-md-8 mt-5 mx-auto">
+        <div className="col-md-7 mt-5 mx-auto">
+          <TictactoeCard />
+        </div>
+        {/* Create a NEW Tictactoe */}
+        <div className="col-md-5 mt-5 mx-auto">
+          <div
+            style={{
+              backgroundColor: "#3997FC",
+              border: "1px solid rgb(0,0,0,0.1)",
+              borderRadius: "4px",
+              paddingBottom: "20px",
+            }}
+          >
+            <form
+              noValidate
+              onSubmit={handleSubmit}
+              style={{
+                padding: "20px",
+              }}
+            >
+              <h1
+                className="h2 mb-3 font-weight normal text-center"
+                style={{ color: "#ffffff" }}
+              >
+                Create a new Tic-Tac-Toe
+              </h1>
+              <div className="form-group">
+                <label htmlFor="tictactoe_title">Tic-Tac-Toe Title</label>
+                <input
+                  type="tictactoe_title"
+                  className="form-control"
+                  name="tictactoe_title"
+                  placeholder="Enter the title or subject of your New Tic-Tac-Toe"
+                  value={tictactoeState.tictactoe_title}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="unit_title">Unit Title</label>
+                <input
+                  type="unit_title"
+                  className="form-control"
+                  name="unit_title"
+                  placeholder="Enter the title of your teaching unit"
+                  value={tictactoeState.unit_title}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="text-center">
+                <button type="submit" className="logBtn">
+                  + Create New
+                </button>
+              </div>
+            </form>
+          </div>
+          {/* info about Tic-Tac-Toe */}
           <div id="accordion">
             <div className="card">
               <div className="card-header" id="headingOne">
@@ -169,57 +225,6 @@ function DashBoard() {
               </div>
             </div>
           </div>
-        </div>
-        {/* Create a NEW Tictactoe */}
-        <div
-          className="col-md-4 mt-5 mx-auto"
-          style={{
-            backgroundColor: "#3997FC",
-            border: "1px solid rgb(0,0,0,0.1)",
-            borderRadius: "4px",
-          }}
-        >
-          <form
-            noValidate
-            onSubmit={handleSubmit}
-            style={{
-              padding: "20px",
-            }}
-          >
-            <h1
-              className="h2 mb-3 font-weight normal text-center"
-              style={{ color: "#ffffff" }}
-            >
-              Create a new Tic-Tac-Toe
-            </h1>
-            <div className="form-group">
-              <label htmlFor="tictactoe_title">Tic-Tac-Toe Title</label>
-              <input
-                type="tictactoe_title"
-                className="form-control"
-                name="tictactoe_title"
-                placeholder="Enter the title or subject of your New Tic-Tac-Toe"
-                value={tictactoeState.tictactoe_title}
-                onChange={onChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="unit_title">Unit Title</label>
-              <input
-                type="unit_title"
-                className="form-control"
-                name="unit_title"
-                placeholder="Enter the title of your teaching unit"
-                value={tictactoeState.unit_title}
-                onChange={onChange}
-              />
-            </div>
-            <div className="text-center">
-              <button type="submit" className="logBtn">
-                + Create New
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
