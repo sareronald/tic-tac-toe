@@ -1,11 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
+// import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.css";
-// import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-// import { faPlus } from "@fortawesome/fontawesome-free-solid";
 
 function DashBoard() {
+  // useEffect is now found in setAuthentification - although it is not working...
+  // useEffect(() => {
+  //   axios.get("/api/user_data");
+  // }, []);
+
   const history = useHistory();
 
   const [tictactoeState, setTictactoeState] = useState({
@@ -43,7 +47,7 @@ function DashBoard() {
   };
 
   return (
-    <div classNameName="pl-0 container-fluid">
+    <div className="pl-0 container-fluid">
       <div className="row" style={{ padding: "40px" }}>
         <div className="col-md-8 mt-5 mx-auto">
           <div id="accordion">
@@ -101,11 +105,11 @@ function DashBoard() {
                   </p>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
+              <div className="card">
+                <div className="card-header" id="headingTwo">
+                  <h5 className="mb-0">
                     <button
-                      class="btn btn-link collapsed"
+                      className="btn btn-link collapsed"
                       data-toggle="collapse"
                       data-target="#collapseTwo"
                       aria-expanded="false"
@@ -117,11 +121,11 @@ function DashBoard() {
                 </div>
                 <div
                   id="collapseTwo"
-                  class="collapse tictactoeInfo"
+                  className="collapse tictactoeInfo"
                   aria-labelledby="headingTwo"
                   data-parent="#accordion"
                 >
-                  <div class="card-body">
+                  <div className="card-body">
                     <h4>Knowledge</h4>
                     <p>
                       Students show their basic knowledge of a concept with
