@@ -147,9 +147,11 @@ module.exports = function (app) {
 
   // Route for adding a TICTACTOE
   app.post("/api/tictactoe", (req, res) => {
+    console.log("get id for", req.user.id);
     db.Tictactoe.create({
       tictactoe_title: req.body.tictactoe_title,
       unit_title: req.body.unit_title,
+      authorID: req.user.id,
     })
       .then((dbTictactoe) => {
         res.status(200).json(dbTictactoe);
@@ -192,6 +194,7 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
+
   // Route for editing/updating an ACTIVITY. Get the updated Activity data from req.body
   app.put("/api/activity/:id", (req, res) => {
     db.Activity.update(
@@ -231,5 +234,22 @@ module.exports = function (app) {
       .catch((err) => {
         res.status(401).json(err);
       });
+  });
+
+  app.get("/api/user_data", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        id: req.user.id,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        email: req.user.email,
+        createdAt: req.user.createdAt,
+      });
+    }
   });
 };
