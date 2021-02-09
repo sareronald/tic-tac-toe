@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { loginUser } from "../../utils/userFuctions";
+import { loginUser } from "../../utils/userFunctions";
 import { useHistory } from "react-router-dom";
-import { Navbar } from "../Navbar/Navbar";
+// import { Navbar } from "../Navbar/Navbar";
+import { SET_CURRENT_USER } from "../../utils/actions";
+import { useAppContext } from "../../store";
 
 function Login() {
   const history = useHistory();
@@ -11,7 +13,7 @@ function Login() {
     password: "",
   });
 
-  // const [, appDispatch] = useAppContext();
+  const [, appDispatch] = useAppContext();
 
   const onChange = (e) => {
     setFormState({
@@ -27,8 +29,8 @@ function Login() {
       password: formState.password,
     };
     try {
-      await loginUser(user);
-      // console.log(response);
+      const res = await loginUser(user);
+      appDispatch({ type: SET_CURRENT_USER, payload: res.data });
       history.push("/dashboard");
     } catch (error) {
       console.log(error);

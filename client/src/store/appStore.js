@@ -1,41 +1,43 @@
 import { isEmpty } from "lodash";
-import { GET_ERRORS, USER_LOADING, SET_CURRENT_USER, LOGOUT } from "./actions";
+import {
+  GET_ERRORS,
+  USER_LOADING,
+  SET_CURRENT_USER,
+  LOGOUT,
+} from "../utils/actions";
 
 export const appInitialState = {
   isAuthenticated: false,
-  firstName: "",
-  lastName: "",
-  email: "",
-  id: "",
+  user: {},
   loading: false,
   errors: {},
 };
 
-export function appReducer(userState, action) {
+export function appReducer(state, action) {
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
-        ...userState,
+        ...state,
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload,
       };
     case USER_LOADING:
       return {
-        ...userState,
+        ...state,
         loading: true,
       };
     case LOGOUT:
       return {
+        ...state,
+        user: {},
         isAuthenticated: false,
-        firstName: "",
-        lastName: "",
-        email: "",
-        id: "",
-        loading: false,
       };
     case GET_ERRORS:
-      return action.payload;
+      return {
+        ...state,
+        errors: action.payload,
+      };
     default:
-      return userState;
+      return state;
   }
 }

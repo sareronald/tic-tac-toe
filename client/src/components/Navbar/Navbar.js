@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAppContext } from "../../utils/AppContext";
+import { useAppContext } from "../../store";
+import { logout } from "../../utils/userFunctions";
 
 import "./style.css";
 // import logo from "../../assets/images/ttt-logo.png";
@@ -11,7 +12,7 @@ function Navbar() {
 
   const handleLogOut = (e) => {
     e.preventDefault();
-    // logout(dispatch);
+    logout(dispatch);
     history.push("/");
   };
 

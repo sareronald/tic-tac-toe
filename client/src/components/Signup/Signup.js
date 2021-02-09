@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { signupUser } from "../../utils/userFuctions";
+import { signupUser } from "../../utils/userFunctions";
 import { useHistory } from "react-router-dom";
-import { Navbar } from "../Navbar/Navbar";
+// import { Navbar } from "../Navbar/Navbar";
 
 function Signup(props) {
   const history = useHistory();

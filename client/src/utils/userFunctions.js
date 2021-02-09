@@ -1,4 +1,5 @@
 import axios from "axios";
+import { LOGOUT } from "./actions";
 
 export const signupUser = (userData) => {
   // console.log(userData);
@@ -21,4 +22,10 @@ export const loginUser = (userData) => {
 
 export const getUsers = () => {
   return axios.get("/api/displayusers").then((res) => res.data);
+};
+
+export const logout = (dispatch) => {
+  return axios.get("/api/logout").then(() => {
+    dispatch({ type: LOGOUT });
+  });
 };
