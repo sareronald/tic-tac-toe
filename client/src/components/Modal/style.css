@@ -18,7 +18,8 @@
   /* grid-template-columns: 1fr 1fr; */
   position: relative;
   z-index: 10;
-  border-radius: 10px;
+  position: relative;
+  border-radius: 9px;
 }
 
 /* .closeModalButton {
