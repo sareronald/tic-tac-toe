@@ -9,7 +9,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     unit_title: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
+    },
+    year_group: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     image_url: {
       type: DataTypes.STRING,

@@ -6,7 +6,9 @@ function NewTictactoe() {
   const history = useHistory();
   const [tictactoeState, setTictactoeState] = useState({
     tictactoe_title: "",
+    year_group: "",
     unit_title: "",
+    image_url: "",
   });
 
   const onChange = (event) => {
@@ -20,7 +22,9 @@ function NewTictactoe() {
     console.log(newTictactoeData);
     return axios.post("/api/tictactoe", {
       tictactoe_title: newTictactoeData.tictactoe_title,
+      year_group: newTictactoeData.year_group,
       unit_title: newTictactoeData.unit_title,
+      image_url: newTictactoeData.image_url,
     });
   };
 
@@ -28,11 +32,13 @@ function NewTictactoe() {
     event.preventDefault();
     const tictactoe = {
       tictactoe_title: tictactoeState.tictactoe_title,
+      year_group: tictactoeState.year_group,
       unit_title: tictactoeState.unit_title,
+      image_url: tictactoeState.image_url,
     };
     try {
       await newGrid(tictactoe);
-      history.push("/tictactoe");
+      history.push("/tictactoe/:id");
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +63,7 @@ function NewTictactoe() {
           className="h2 mb-3 font-weight normal text-center"
           style={{ color: "#ffffff" }}
         >
-          Create a new Tic-Tac-Toe
+          + CREATE A TICTACTOE
         </h1>
         <div className="form-group">
           <label htmlFor="tictactoe_title">Tic-Tac-Toe Title</label>
@@ -82,6 +88,17 @@ function NewTictactoe() {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="year_group">Year Group</label>
+          <input
+            type="year_group"
+            className="form-control"
+            name="year_group"
+            placeholder="Add Year Group"
+            value={tictactoeState.year_group}
+            onChange={onChange}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="image_url">Image URL</label>
           <input
             type="image_url"
@@ -93,7 +110,11 @@ function NewTictactoe() {
           />
         </div>
         <div className="text-center">
-          <button type="submit" className="logBtn">
+          <button
+            type="submit"
+            className="logBtn"
+            disabled={!tictactoeState.tictactoe_title}
+          >
             + Create New
           </button>
         </div>

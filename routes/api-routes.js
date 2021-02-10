@@ -118,12 +118,16 @@ module.exports = function (app) {
 
   //   *************************************** TICTACTOE CRUD ***************************************** //
   // GET route for getting tictactoe grids
-  app.get("/api/tictactoe/:id/:userType", (req, res) => {
-    if (req.params.userType === "teacher") {
-      getTeacherTictactoes(req.params.id, res);
-    } else if (req.params.userType === "student") {
-      getStudentTictactoes(req.params.id, res);
-    }
+  // app.get("/api/tictactoe/:id/:userType", (req, res) => {
+  //   if (req.params.userType === "teacher") {
+  //     getTeacherTictactoes(req.params.id, res);
+  //   } else if (req.params.userType === "student") {
+  //     getStudentTictactoes(req.params.id, res);
+  //   }
+  // });
+
+  app.get("/api/tictactoe", (req, res) => {
+    db.Tictactoe.findAll().then((result) => res.json(result));
   });
 
   // PUT route for updating/editing tictactoe grids. Get the updated tictactoe data from req.body
@@ -131,7 +135,9 @@ module.exports = function (app) {
     db.Tictactoe.update(
       {
         tictactoe_title: req.body.tictactoe_title,
+        year_group: req.body.year_group,
         unit_title: req.body.unit_title,
+        image_url: req.body.image_url,
       },
       {
         where: {
@@ -152,7 +158,10 @@ module.exports = function (app) {
     console.log("get id for", req.user.id);
     db.Tictactoe.create({
       tictactoe_title: req.body.tictactoe_title,
+      year_group: req.body.year_group,
       unit_title: req.body.unit_title,
+      image_url: req.body.image_url,
+
       authorID: req.user.id,
     })
       .then((dbTictactoe) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+// import Navbar from "../../components/Navbar/Navbar";
 import TictactoeBoard from "../../components/TictactoeBoard/TictactoeBoard";
 import Instructions from "../../components/Instructions/Instructions";
 import "./style.css";
