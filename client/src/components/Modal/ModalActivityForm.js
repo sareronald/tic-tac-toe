@@ -1,6 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function ModalActivityForm() {
+  const history = useHistory();
   const [activityState, setActivityState] = useState({
     activityName: "",
     difficultyLevel: "",
@@ -9,6 +12,10 @@ function ModalActivityForm() {
     hints: "",
   });
 
+  // const [squareState, setSquareState] = useState(false);
+  // const onClick = () => setSquareState(true);
+  // const Completed = () => <div style={{ fontSize: "40px" }}>X</div>;
+
   const onChange = (event) => {
     setActivityState({
       ...activityState,
@@ -16,17 +23,34 @@ function ModalActivityForm() {
     });
   };
 
-  // const onSubmit = (event) => {
-  //   console.log(activityState);
-  //   event.preventDefault();
-  //   const activityData = {
-  //     activityName: activityState.activityName,
-  //     difficultyLevel: activityState.difficultyLevel,
-  //     taskDescription: activityState.taskDescription,
-  //     resources: activityState.resources,
-  //     hints: activityState.hint,
-  //   };
-  // };
+  const newActivity = (newActivityData) => {
+    console.log(newActivityData);
+    return axios.post("/api/activity", {
+      activityName: newActivityData.activityName,
+      difficultyLevel: newActivityData.difficultyLevel,
+      taskDescription: newActivityData.taskDescription,
+      resources: newActivityData.resources,
+      hints: newActivityData.hints,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    console.log(activityState);
+    event.preventDefault();
+    const activity = {
+      activityName: activityState.activityName,
+      difficultyLevel: activityState.difficultyLevel,
+      taskDescription: activityState.taskDescription,
+      resources: activityState.resources,
+      hints: activityState.hint,
+    };
+    try {
+      await newActivity(activity);
+      history.pushState("/tictactoe");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div
@@ -34,10 +58,7 @@ function ModalActivityForm() {
         padding: "40px",
       }}
     >
-      <form
-        noValidate
-        // onSubmit={onSubmit}
-      >
+      <form noValidate onSubmit={handleSubmit}>
         <div
           style={{
             backgroundColour: "#087fff",
@@ -46,10 +67,10 @@ function ModalActivityForm() {
             borderRadius: "4px",
           }}
         >
-          <h1 className="mb-3 h2 font-weight normal">Add an Activity</h1>
+          <h1 className="mb-3 h2 font-weight normal">+ Add an Activity</h1>
         </div>
         <div className="form-group">
-          <label htmlFor="activityName">Activty Name</label>
+          <label htmlFor="activityName">Activty Name *</label>
           <input
             type="text"
             refs="activityName"
@@ -62,7 +83,7 @@ function ModalActivityForm() {
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">
-            Select Activity Difficulty (1=recall, 2=thinking, 3=analytical)
+            Select Activity Difficulty (1=recall, 2=think, 3=analyse) *
           </label>
           <select
             type="text"
@@ -74,13 +95,13 @@ function ModalActivityForm() {
             onChange={onChange}
           >
             <option value="">Please choose ...</option>
-            <option value="student">1</option>
-            <option value="teacher">2</option>
-            <option value="teacher">3</option>
+            <option value="recall">1</option>
+            <option value="think">2</option>
+            <option value="analysis">3</option>
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="taskDescription">Task Description</label>
+          <label htmlFor="taskDescription">Task Description *</label>
           <input
             type="taskDescription"
             refs="taskDescription"
@@ -118,6 +139,7 @@ function ModalActivityForm() {
         <div className="text-center">
           <button type="submit" className="logBtn">
             Save
+            {/* { show {squareState} ? <Completed/> : null } */}
           </button>
         </div>
       </form>
