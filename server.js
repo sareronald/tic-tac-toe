@@ -43,13 +43,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
+// =============================================================
 // require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-// Routes
-// =============================================================
-// Add routes, both API and view
-// app.use(routes);
+// If no API routes are hit, send the React app
+router.use(function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
