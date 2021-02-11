@@ -33,13 +33,13 @@ function Navbar() {
   const userLink = (
     <ul className="navbar-nav list-group list-group-horizontal">
       <li>
-        <Link className="mb-1 mr-1 btn btn-sm active" to="/">
-          HOME
+        <Link className="nav-links" to="/dashboard">
+          ABOUT TICTACTOE
         </Link>
       </li>
       <li>
-        <Link className="mb-1 mr-1 btn btn-sm active" to="/dashboard">
-          DASHBOARD
+        <Link className="nav-links" to="/dashboard">
+          MY TICTACTOEs
         </Link>
       </li>
       <li>
