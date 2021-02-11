@@ -173,15 +173,15 @@ module.exports = function (app) {
   });
 
   // Route for deleting a TICTACTOE
-  app.delete("/api/tictactoe/:id", (res, req) => {
+  app.delete("/api/tictactoe/:id", (req, res) => {
     // We just have to specify which Tictactoe we want to destroy
     db.Tictactoe.destroy({
       where: {
         id: req.params.id,
       },
     })
-      .then((dbTictactoe) => {
-        res.status(200).json(dbTictactoe);
+      .then(() => {
+        res.status(200);
       })
       .catch((err) => {
         res.status(401).json(err);
@@ -190,7 +190,7 @@ module.exports = function (app) {
 
   //   *************************************** ACTIVITY CRUD ***************************************** //
   // Route for adding an ACTIVITY
-  app.post("/api/activity", (res, req) => {
+  app.post("/api/activity", (req, res) => {
     db.Activity.create({
       activityName: req.body.activityName,
       difficultyLevel: req.body.difficultyLevel,

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import DeleteBtn from "../../components/DeleteBtn/DeleteBtn";
 import { Link } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import tile from "../../assets/images/shutterstock_730257916.png";
@@ -11,6 +12,7 @@ function MyTictactoes() {
     loadTictactoes();
   }, []);
 
+  // Load Tictactoe's from db
   async function loadTictactoes() {
     try {
       const res = await axios.get("/api/tictactoe");
@@ -19,6 +21,19 @@ function MyTictactoes() {
       return console.log(err);
     }
   }
+
+  // delete Tictactoe from list
+  function deleteTictactoe(id) {
+    return axios
+      .delete("/api/tictactoe/" + id)
+      .then((res) => loadTictactoes())
+      .catch((err) => console.log(err));
+  }
+
+  // update Tictactoe
+  // function updateTictactoe (tictactoe) {
+  //   return axios.put("/api/tictactoe/", tictactoe)
+  // }
 
   return (
     <div>
@@ -36,7 +51,7 @@ function MyTictactoes() {
                       key={myTictactoe.id}
                       className="card-img"
                       aria-label="Tictactoe Image"
-                      src={myTictactoe.image_src || tile}
+                      src={myTictactoe.image_url || tile}
                       alt="image_src"
                       style={{ width: "150px", height: "150px" }}
                     ></img>
@@ -66,16 +81,13 @@ function MyTictactoes() {
                       className="nav-links"
                       to={"/tictactoe/" + myTictactoe.id}
                     >
-                      Edit
+                      ✎ Edit
                     </Link>
                   </li>
                   <li style={{ listStyleType: "none" }}>
-                    <Link
-                      className="nav-links"
-                      to={"/tictactoe/" + myTictactoe.id}
-                    >
-                      Delete
-                    </Link>
+                    <DeleteBtn
+                      onClick={() => deleteTictactoe(myTictactoe.id)}
+                    />
                   </li>
                 </ul>
               </div>

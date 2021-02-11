@@ -42,9 +42,6 @@ function TictactoeBoard() {
             <Square value={7} onClick={openModal} />
             <Square value={8} onClick={openModal} />
           </div>
-          {/* <button className="squareBtn" onClick={openModal}>
-          I'm a modal
-        </button> */}
         </div>
       </div>
     </div>

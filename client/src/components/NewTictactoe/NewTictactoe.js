@@ -66,7 +66,7 @@ function NewTictactoe() {
           + CREATE A TICTACTOE
         </h1>
         <div className="form-group">
-          <label htmlFor="tictactoe_title">Tic-Tac-Toe Title</label>
+          <label htmlFor="tictactoe_title">Tic-Tac-Toe Title *</label>
           <input
             type="tictactoe_title"
             className="form-control"
@@ -77,7 +77,7 @@ function NewTictactoe() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="unit_title">Unit Title</label>
+          <label htmlFor="unit_title">Unit Title *</label>
           <input
             type="unit_title"
             className="form-control"
