@@ -3,11 +3,11 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("../config/passport");
 const db = require("../models");
-const { response } = require("express");
+// const { response } = require("express");
 const tictactoeController = require("../controllers/tictactoeController");
 
 function getTeacherTictactoes(teacherId, response) {
-  db.Booking.findAll({
+  db.Tictactoe.findAll({
     where: {
       authorID: teacherId,
     },
@@ -118,12 +118,28 @@ module.exports = function (app) {
 
   //   *************************************** TICTACTOE CRUD ***************************************** //
   // GET route for getting tictactoe grids
-  // app.get("/api/tictactoe/:id/:userType", (req, res) => {
+  // app.get("/api/tictactoe/:id", (req, res) => {
   //   if (req.params.userType === "teacher") {
   //     getTeacherTictactoes(req.params.id, res);
   //   } else if (req.params.userType === "student") {
   //     getStudentTictactoes(req.params.id, res);
   //   }
+  // });
+  // GET
+  // app.get("/api/activity/:id", (req, res) => {
+  //   db.Activity.findOne({
+  //     attributes: ["UserId"],
+  //     where: {
+  //       TictactoeId: req.params.id,
+  //     },
+  //     include: db.Tictactoe,
+  //   })
+  //     .then(() => {
+  //       res.status(200);
+  //     })
+  //     .catch((err) => {
+  //       res.status(401).json(err);
+  //     });
   // });
 
   app.get("/api/tictactoe", (req, res) => {
@@ -161,7 +177,6 @@ module.exports = function (app) {
       year_group: req.body.year_group,
       unit_title: req.body.unit_title,
       image_url: req.body.image_url,
-
       authorID: req.user.id,
     })
       .then((dbTictactoe) => {
@@ -192,17 +207,19 @@ module.exports = function (app) {
   // Route for adding an ACTIVITY
   app.post("/api/activity", (req, res) => {
     db.Activity.create({
+      currentSquare: req.body.currentSquare,
       activityName: req.body.activityName,
       difficultyLevel: req.body.difficultyLevel,
       taskDescription: req.body.taskDescription,
       hints: req.body.hints,
       resources: req.body.resources,
+      tictactoeID: req.tictactoe.id,
     })
       .then((dbTictactoe) => {
         res.status(200).json(dbTictactoe);
       })
       .catch((err) => {
-        res.status(401).json(err);
+        res.status(500).json(err);
       });
   });
 
@@ -239,8 +256,8 @@ module.exports = function (app) {
       },
       include: db.Tictactoe,
     })
-      .then((dbActivities) => {
-        res.status(200).json(dbActivities);
+      .then(() => {
+        res.status(200);
       })
       .catch((err) => {
         res.status(401).json(err);
