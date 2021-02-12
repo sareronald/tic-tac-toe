@@ -6,41 +6,81 @@ import Square from "../Square/Square";
 import "./style.css";
 
 function TictactoeBoard() {
-  // const [squares, setSquares] = useState(9);
+  const [square, setSquare] = useState(0);
   const [showModal, setShowModal] = useState(false);
-
-  // function renderSquare(i) {
-  //   return;
-  //   <Square
-  //     value={squares[i]}
-  //     onClick={() => {
-  //       setShowModal((prev) => !prev);
-  //     }}
-  //   />;
-  // }
 
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
   return (
     <div>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal
+        showModal={showModal}
+        currentSquare={square}
+        setShowModal={setShowModal}
+      />
       <div className="containter">
         <div className="tictactoe-board text-center">
           <div className="board-row">
-            <Square value={0} onClick={openModal} />
-            <Square value={1} onClick={openModal} />
-            <Square value={2} onClick={openModal} />
+            <Square
+              onClick={() => {
+                setSquare(1);
+                openModal();
+              }}
+              isActive
+            />
+            <Square
+              onClick={() => {
+                setSquare(2);
+                openModal();
+              }}
+            />
+            <Square
+              onClick={() => {
+                setSquare(3);
+                openModal();
+              }}
+            />
           </div>
           <div className="board-row">
-            <Square value={3} onClick={openModal} />
-            <Square value={4} onClick={openModal} />
-            <Square value={5} onClick={openModal} />
+            <Square
+              onClick={() => {
+                setSquare(4);
+                openModal();
+              }}
+            />
+            <Square
+              onClick={() => {
+                setSquare(5);
+                openModal();
+              }}
+            />
+            <Square
+              onClick={() => {
+                setSquare(6);
+                openModal();
+              }}
+            />
           </div>
           <div className="board-row">
-            <Square value={6} onClick={openModal} />
-            <Square value={7} onClick={openModal} />
-            <Square value={8} onClick={openModal} />
+            <Square
+              onClick={() => {
+                setSquare(7);
+                openModal();
+              }}
+            />
+            <Square
+              onClick={() => {
+                setSquare(8);
+                openModal();
+              }}
+            />
+            <Square
+              onClick={() => {
+                setSquare(9);
+                openModal();
+              }}
+            />
           </div>
         </div>
       </div>

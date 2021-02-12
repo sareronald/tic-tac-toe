@@ -4,6 +4,11 @@ import Instructions from "../../components/Instructions/Instructions";
 import "./style.css";
 
 function Tictactoe() {
+  // const [tictactoeGridState, setTictactoe] = useState([]);
+  // useEffect(()=>{
+  //   loadCurrentTictactoe();
+  // }, []);
+
   return (
     <div className="container-fluid p0 m0">
       <div className="row">

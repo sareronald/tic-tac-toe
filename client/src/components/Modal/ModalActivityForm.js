@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
-function ModalActivityForm() {
-  const history = useHistory();
+function ModalActivityForm({ currentSquare }) {
+  // const history = useHistory();
   const [activityState, setActivityState] = useState({
+    currentSquare: currentSquare,
     activityName: "",
     difficultyLevel: "",
     taskDescription: "",
@@ -26,6 +27,7 @@ function ModalActivityForm() {
   const newActivity = (newActivityData) => {
     console.log(newActivityData);
     return axios.post("/api/activity", {
+      currentSquare: newActivityData.currentSquare,
       activityName: newActivityData.activityName,
       difficultyLevel: newActivityData.difficultyLevel,
       taskDescription: newActivityData.taskDescription,
@@ -38,15 +40,15 @@ function ModalActivityForm() {
     console.log(activityState);
     event.preventDefault();
     const activity = {
+      currentSquare: activityState.currentSquare,
       activityName: activityState.activityName,
       difficultyLevel: activityState.difficultyLevel,
       taskDescription: activityState.taskDescription,
       resources: activityState.resources,
-      hints: activityState.hint,
+      hints: activityState.hints,
     };
     try {
       await newActivity(activity);
-      history.pushState("/tictactoe");
     } catch (error) {
       console.log(error);
     }
@@ -86,18 +88,18 @@ function ModalActivityForm() {
             Select Activity Difficulty (1=recall, 2=think, 3=analyse) *
           </label>
           <select
-            type="text"
-            refs="activityDifficulty"
+            type="integer"
+            refs="difficultyLevel"
             className="form-control"
-            name="activityDifficulty"
+            name="difficultyLevel"
             placeholder="Please Choose..."
-            value={activityState.activityDifficulty}
+            value={activityState.difficultyLevel}
             onChange={onChange}
           >
             <option value="">Please choose ...</option>
-            <option value="recall">1</option>
-            <option value="think">2</option>
-            <option value="analysis">3</option>
+            <option value="1">recall</option>
+            <option value="2">think</option>
+            <option value="3">analysis</option>
           </select>
         </div>
         <div className="form-group">
@@ -113,7 +115,7 @@ function ModalActivityForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="resources">Resources</label>
+          <label htmlFor="resources">Resources/Links</label>
           <input
             type="resources"
             refs="resources"

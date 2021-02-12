@@ -2,6 +2,10 @@ module.exports = function (sequelize, DataTypes) {
   const Activity = sequelize.define(
     "Activity",
     {
+      currentSquare: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       activityName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -9,9 +13,8 @@ module.exports = function (sequelize, DataTypes) {
       },
       // Level 1=beginner, Level 2=intermediate, Level 3=advanced
       difficultyLevel: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
-        isInt: true,
       },
       taskDescription: {
         type: DataTypes.STRING,
