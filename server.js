@@ -1,7 +1,8 @@
 // Server.js - This file is the initial starting point for the Node/Express server.
 // *****************************************************************************
 
-// Dependencies
+// Requiring necessary npm packages - Dependencies
+require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
@@ -13,6 +14,7 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
+// Creating express app and configuring middleware needed for authentication
 const app = express();
 
 const corsOptions = {
@@ -26,15 +28,15 @@ app.use(logger("dev"));
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static("public"));
-// Serve up static assets (usually on heroku) ?
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
 app.use(
   session({
-    secret: "topsecret",
+    // secret: "topsecret",
+    secret: "process.env.SECRET",
     resave: true,
     saveUninitialized: true,
   })
@@ -48,7 +50,7 @@ app.use(passport.session());
 require("./routes/api-routes.js")(app);
 
 // If no API routes are hit, send the React app
-router.use(function (req, res) {
+app.use(function (req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
@@ -56,6 +58,10 @@ router.use(function (req, res) {
 // =============================================================
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log(" 🌎 ==> App listening on PORT " + PORT);
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });
