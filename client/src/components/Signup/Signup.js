@@ -44,21 +44,21 @@ function Signup(props) {
       signupUser(userData).then((res) => {
         history.push("/login");
       });
-      getUsers().then((data) => {
-        console.log(data);
-        var alreadyRegisteredUser = data.find(
-          (element) => element.email === signupState.email
-        );
-        if (!alreadyRegisteredUser) {
-          signupUser(userData).then((res) => {
-            history.push("/login");
-          });
-          console.log("Form submitted");
-        } else {
-          errors["email"] = "Email already exists";
-          setSignupState({ ...signupState, errors });
-        }
-      });
+      // getUsers().then((data) => {
+      // console.log(data);
+      // var alreadyRegisteredUser = data.find(
+      //   (element) => element.email === signupState.email
+      // );
+      // if (!alreadyRegisteredUser) {
+      // signupUser(userData).then((res) => {
+      //   history.push("/login");
+      // });
+      // console.log("Form submitted");
+      // } else {
+      //   errors["email"] = "Email already exists";
+      //   setSignupState({ ...signupState, errors });
+      // }
+      // });
     } else {
       console.log("Form has errors.");
     }
