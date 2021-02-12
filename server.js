@@ -3,6 +3,7 @@
 
 // Requiring necessary npm packages - Dependencies
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
@@ -48,11 +49,6 @@ app.use(passport.session());
 // =============================================================
 // require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-
-// If no API routes are hit, send the React app
-app.use(function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
