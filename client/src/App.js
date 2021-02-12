@@ -8,6 +8,7 @@ import Tictactoe from "./pages/Tictactoe/Tictactoe";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
+import About from "./pages/About/About";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route path="/tictactoe/:id" component={Tictactoe} />
+            <Route path="/about" component={About} />
           </div>
         </div>
       </Router>
