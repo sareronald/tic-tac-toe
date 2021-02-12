@@ -1,6 +1,5 @@
 import React from "react";
 import MyTictactoes from "../../components/MyTictactoe/MyTictactoes";
-import AboutTictactoe from "../../components/AboutTictactoe/AboutTictactoe";
 import NewTictactoe from "../../components/NewTictactoe/NewTictactoe";
 // import "./style.css";
 
@@ -15,7 +14,6 @@ function DashBoard() {
         <div className="col-md-5 mt-5 mx-auto">
           <NewTictactoe />
           {/* about tictactoe */}
-          <AboutTictactoe />
         </div>
       </div>
     </div>
