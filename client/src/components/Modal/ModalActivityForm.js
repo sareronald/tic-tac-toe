@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
 
 function ModalActivityForm({ currentSquare }) {
   const [activityState, setActivityState] = useState({
@@ -12,7 +13,21 @@ function ModalActivityForm({ currentSquare }) {
     hints: "",
     tictactoeID: "",
   });
+  const [squareState, setSquareState] = useState({});
+  // Load all activities and store with setActivityState
+  useEffect(() => {
+    loadActivities();
+  }, []);
 
+  async function loadActivities() {
+    try {
+      const res = await axios.get("/api/activities");
+      // if { id }
+      return setSquareState(res.data);
+    } catch (err) {
+      return console.log(err);
+    }
+  }
   // const { id } = useParams();
   // useEffect(() => {
   //   axios
