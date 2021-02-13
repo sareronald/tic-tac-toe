@@ -23,13 +23,21 @@ function MyTictactoes() {
   }
 
   // delete Tictactoe from list
+  // async function deleteTictactoe(id) {
+  //   try {
+  //     const res = await axios.delete("/api/tictactoe/" + id);
+  //     return await loadTictactoes(res.data);
+  //   } catch (err) {
+  //     return console.log(err);
+  //   }
+  // }
   function deleteTictactoe(id) {
+    console.log("delete Tictactoe: " + id);
     return axios
       .delete("/api/tictactoe/" + id)
       .then((res) => loadTictactoes())
       .catch((err) => console.log(err));
   }
-
   // update Tictactoe
   // function updateTictactoe (tictactoe) {
   //   return axios.put("/api/tictactoe/", tictactoe)
@@ -41,10 +49,10 @@ function MyTictactoes() {
         <h1 className="text-center">My TICTACTOEs</h1>
       </div>
       {myTictactoes.length ? (
-        myTictactoes.map((myTictactoe) => (
-          <div className="card mb-3">
+        myTictactoes.map((myTictactoe, index) => (
+          <div className="card mb-3" key={index}>
             <div className="row no-gutters">
-              <div class="col-md-3">
+              <div className="col-md-3">
                 <div key={myTictactoe.id}>
                   <Link to={"/tictactoe/" + myTictactoe.id}>
                     <img
@@ -86,7 +94,9 @@ function MyTictactoes() {
                   </li>
                   <li style={{ listStyleType: "none" }}>
                     <DeleteBtn
-                      onClick={() => deleteTictactoe(myTictactoe.id)}
+                      onClick={() => {
+                        deleteTictactoe(myTictactoe.id);
+                      }}
                     />
                   </li>
                 </ul>
