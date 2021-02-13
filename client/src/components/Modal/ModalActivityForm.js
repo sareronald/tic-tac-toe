@@ -13,13 +13,13 @@ function ModalActivityForm({ currentSquare }) {
     tictactoeID: "",
   });
 
-  const { id } = useParams();
-  useEffect(() => {
-    axios
-      .get("/api/tictactoe/" + id)
-      .then((res) => setActivityState(res.data.id))
-      .catch((err) => console.log(err));
-  });
+  // const { id } = useParams();
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/tictactoe/" + id)
+  //     .then((res) => setActivityState(res.data.id))
+  //     .catch((err) => console.log(err));
+  // });
 
   const onChange = (event) => {
     setActivityState({

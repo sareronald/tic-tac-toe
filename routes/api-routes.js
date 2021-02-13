@@ -171,7 +171,7 @@ module.exports = function (app) {
   //   *************************************** ACTIVITY CRUD ***************************************** //
   // Route for adding an ACTIVITY
   app.post("/api/activity", (req, res) => {
-    console.log("get tictactoeID for", req.tictactoe.id);
+    // console.log("get tictactoeID for", req.tictactoe.id);
     db.Activity.create({
       currentSquare: req.body.currentSquare,
       activityName: req.body.activityName,
@@ -179,7 +179,7 @@ module.exports = function (app) {
       taskDescription: req.body.taskDescription,
       hints: req.body.hints,
       resources: req.body.resources,
-      tictactoeID: req.tictactoe.id,
+      // tictactoeID: req.tictactoe.id,
     })
       .then((dbTictactoe) => {
         res.status(200).json(dbTictactoe);
