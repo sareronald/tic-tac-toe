@@ -8,6 +8,7 @@ import "./style.css";
 function TictactoeBoard() {
   const [square, setSquare] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  // const [tictactoeTitle, setTictactoeTitle] = useState;
   // const [sqStyle, setSqStyle] = useState(true);
   // const squareStyle = sqStyle ? "X": null;
 
