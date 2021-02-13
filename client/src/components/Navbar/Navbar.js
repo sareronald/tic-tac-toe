@@ -33,7 +33,7 @@ function Navbar() {
   const userLink = (
     <ul className="navbar-nav list-group list-group-horizontal">
       <li>
-        <Link className="nav-links" to="/dashboard">
+        <Link className="nav-links" to="/about">
           ABOUT TICTACTOE
         </Link>
       </li>
