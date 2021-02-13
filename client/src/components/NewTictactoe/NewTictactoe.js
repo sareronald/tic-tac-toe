@@ -39,6 +39,9 @@ function NewTictactoe() {
     try {
       await newGrid(tictactoe);
       history.push("/tictactoe/:id");
+      // const resp = await newGrid(tictactoe);
+      // const id = resp.data.id
+      // history.push("/tictactoe/${id}")
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +91,7 @@ function NewTictactoe() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="year_group">Year Group</label>
+          <label htmlFor="year_group">Year Group *</label>
           <input
             type="year_group"
             className="form-control"
@@ -99,7 +102,9 @@ function NewTictactoe() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image_url">Image URL</label>
+          <label htmlFor="image_url">
+            Image URL<small> (optional)</small>
+          </label>
           <input
             type="image_url"
             className="form-control"

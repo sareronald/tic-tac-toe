@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signupUser, getUsers } from "../../utils/userFunctions";
+import { signupUser } from "../../utils/userFunctions";
 import { useHistory } from "react-router-dom";
 // import { Navbar } from "../Navbar/Navbar";
 

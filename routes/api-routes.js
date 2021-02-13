@@ -6,42 +6,6 @@ const db = require("../models");
 // const { response } = require("express");
 const tictactoeController = require("../controllers/tictactoeController");
 
-function getTeacherTictactoes(teacherId, response) {
-  db.Tictactoe.findAll({
-    where: {
-      authorID: teacherId,
-    },
-    attributes: ["id", "tictactoe_title", "tictactoe_unit"],
-    include: [
-      {
-        model: db.User,
-        as: "teacher",
-        attributes: ["id", "firstName", "lastName"],
-      },
-      {
-        model: db.Activity,
-        attributes: [
-          "id",
-          "activityName",
-          "difficultyLevel",
-          "taskDescription",
-          "hints",
-          "resources",
-        ],
-      },
-    ],
-  })
-    .then((dbTictactoe) => {
-      response.status(200).json(dbTictactoe);
-    })
-    .catch((err) => {
-      response.status(401).json(err);
-    });
-}
-
-// ??Do I need to get ttt's that the students have??
-// function getStudentTictactoes(studentId, response) {}
-
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -142,6 +106,7 @@ module.exports = function (app) {
   //     });
   // });
 
+  // get all tictactoes
   app.get("/api/tictactoe", (req, res) => {
     db.Tictactoe.findAll().then((result) => res.json(result));
   });
@@ -161,7 +126,7 @@ module.exports = function (app) {
         },
       }
     )
-      .then(function (dbTictactoe) {
+      .then((dbTictactoe) => {
         res.status(200).json(dbTictactoe);
       })
       .catch((err) => {
@@ -206,6 +171,7 @@ module.exports = function (app) {
   //   *************************************** ACTIVITY CRUD ***************************************** //
   // Route for adding an ACTIVITY
   app.post("/api/activity", (req, res) => {
+    console.log("get tictactoeID for", req.tictactoe.id);
     db.Activity.create({
       currentSquare: req.body.currentSquare,
       activityName: req.body.activityName,
@@ -249,7 +215,7 @@ module.exports = function (app) {
 
   // Route for getting an ACTIVITY in a particular tictactoe
   app.get("/api/activity/:id", (req, res) => {
-    db.TictactoeActivity.findAll({
+    db.Activity.findAll({
       attributes: ["UserId"],
       where: {
         UserId: req.params.id,
