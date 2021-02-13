@@ -214,11 +214,11 @@ module.exports = function (app) {
   });
 
   // Route for getting an ACTIVITY in a particular tictactoe
-  app.get("/api/activity/:id", (req, res) => {
+  app.get("/api/activity", (req, res) => {
     db.Activity.findAll({
-      attributes: ["UserId"],
+      attributes: ["TictactoeID"],
       where: {
-        UserId: req.params.id,
+        TictactoeID: req.tictactoe.id,
       },
       include: db.Tictactoe,
     })
