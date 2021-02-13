@@ -1,9 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function ModalActivityForm({ currentSquare }) {
-  // const history = useHistory();
   const [activityState, setActivityState] = useState({
     currentSquare: currentSquare,
     activityName: "",
@@ -11,11 +10,16 @@ function ModalActivityForm({ currentSquare }) {
     taskDescription: "",
     resources: "",
     hints: "",
+    tictactoeID: "",
   });
 
-  // const [squareState, setSquareState] = useState(false);
-  // const onClick = () => setSquareState(true);
-  // const Completed = () => <div style={{ fontSize: "40px" }}>X</div>;
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get("/api/tictactoe/" + id)
+      .then((res) => setActivityState(res.data.id))
+      .catch((err) => console.log(err));
+  });
 
   const onChange = (event) => {
     setActivityState({
@@ -141,7 +145,6 @@ function ModalActivityForm({ currentSquare }) {
         <div className="text-center">
           <button type="submit" className="logBtn">
             Save
-            {/* { show {squareState} ? <Completed/> : null } */}
           </button>
         </div>
       </form>
