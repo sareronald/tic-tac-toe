@@ -52,7 +52,7 @@
   cursor: pointer;
   transition: all 0.2s;
   border: none;
-  background: rgb(57, 151, 252);
+  background: #3997fc;
   color: #ffffff !important;
   text-transform: uppercase;
   /* display: inline-block; */
