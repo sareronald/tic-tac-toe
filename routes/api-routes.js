@@ -171,7 +171,6 @@ module.exports = function (app) {
   //   *************************************** ACTIVITY CRUD ***************************************** //
   // Route for adding an ACTIVITY
   app.post("/api/activity", (req, res) => {
-    // console.log("get tictactoeID for", req.tictactoe.id);
     db.Activity.create({
       currentSquare: req.body.currentSquare,
       activityName: req.body.activityName,
@@ -213,17 +212,15 @@ module.exports = function (app) {
       });
   });
 
-  // Route for getting an ACTIVITY in a particular tictactoe
-  app.get("/api/activity", (req, res) => {
-    db.Activity.findAll({
-      attributes: ["TictactoeID"],
+  // Route for getting an ACTIVITY
+  app.get("/api/activity/:id", (req, res) => {
+    db.Activity.findOne({
       where: {
-        TictactoeID: req.tictactoe.id,
+        TictactoeID: req.params.id,
       },
-      include: db.Tictactoe,
     })
-      .then(() => {
-        res.status(200);
+      .then((result) => {
+        res.json(200);
       })
       .catch((err) => {
         res.status(500).json(err);
@@ -245,5 +242,20 @@ module.exports = function (app) {
         createdAt: req.user.createdAt,
       });
     }
+  });
+
+  // Route for getting all the activities for a tictactoe
+  app.get("/api/tictactoe/:id/activities", (req, res) => {
+    db.Activity.findAll({
+      where: {
+        tictactoeID: req.params.id,
+      },
+    })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(500).json(err);
+      });
   });
 };
