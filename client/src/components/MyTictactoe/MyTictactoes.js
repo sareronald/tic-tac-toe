@@ -23,14 +23,6 @@ function MyTictactoes() {
   }
 
   // delete Tictactoe from list
-  // async function deleteTictactoe(id) {
-  //   try {
-  //     const res = await axios.delete("/api/tictactoe/" + id);
-  //     return await loadTictactoes(res.data);
-  //   } catch (err) {
-  //     return console.log(err);
-  //   }
-  // }
   function deleteTictactoe(id) {
     console.log("delete Tictactoe: " + id);
     return axios
@@ -38,10 +30,6 @@ function MyTictactoes() {
       .then((res) => loadTictactoes())
       .catch((err) => console.log(err));
   }
-  // update Tictactoe
-  // function updateTictactoe (tictactoe) {
-  //   return axios.put("/api/tictactoe/", tictactoe)
-  // }
 
   return (
     <div>
