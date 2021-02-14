@@ -21,7 +21,7 @@ function ModalActivityForm({ currentSquare, closeModal, activity }) {
       setActivityState({
         ...activityState,
         activityName: activity.activityName,
-        difficultyLavel: activity.difficultyLevel,
+        difficultyLevel: activity.difficultyLevel,
         taskDescription: activity.taskDescription,
         resources: activity.resources,
         hints: activity.hints,

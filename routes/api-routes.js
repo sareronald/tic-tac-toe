@@ -81,31 +81,6 @@ module.exports = function (app) {
   });
 
   //   *************************************** TICTACTOE CRUD ***************************************** //
-  // GET route for getting tictactoe grids
-  // app.get("/api/tictactoe/:id", (req, res) => {
-  //   if (req.params.userType === "teacher") {
-  //     getTeacherTictactoes(req.params.id, res);
-  //   } else if (req.params.userType === "student") {
-  //     getStudentTictactoes(req.params.id, res);
-  //   }
-  // });
-  // GET
-  // app.get("/api/activity/:id", (req, res) => {
-  //   db.Activity.findOne({
-  //     attributes: ["UserId"],
-  //     where: {
-  //       TictactoeId: req.params.id,
-  //     },
-  //     include: db.Tictactoe,
-  //   })
-  //     .then(() => {
-  //       res.status(200);
-  //     })
-  //     .catch((err) => {
-  //       res.status(500).json(err);
-  //     });
-  // });
-
   // get all tictactoes
   app.get("/api/tictactoe", (req, res) => {
     db.Tictactoe.findAll().then((result) => res.json(result));
