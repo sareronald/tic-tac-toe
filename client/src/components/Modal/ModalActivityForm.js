@@ -29,14 +29,6 @@ function ModalActivityForm({ currentSquare, closeModal, activity }) {
     }
   }, []);
 
-  useEffect(() => {
-    if (!!tictactoeID)
-      axios
-        .get("/api/tictactoe/" + tictactoeID)
-        .then((res) => setActivityState(res.data))
-        .catch((err) => console.log(err));
-  }, [tictactoeID]);
-
   const onChange = (event) => {
     setActivityState({
       ...activityState,
