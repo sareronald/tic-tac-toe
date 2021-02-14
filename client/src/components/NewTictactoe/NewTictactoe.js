@@ -37,11 +37,9 @@ function NewTictactoe() {
       image_url: tictactoeState.image_url,
     };
     try {
-      await newGrid(tictactoe);
-      history.push("/tictactoe/:id");
-      // const resp = await newGrid(tictactoe);
-      // const id = resp.data.id
-      // history.push("/tictactoe/${id}")
+      const res = await newGrid(tictactoe);
+      console.log(res);
+      history.push(`/tictactoe/${res.data.id}`);
     } catch (error) {
       console.log(error);
     }
