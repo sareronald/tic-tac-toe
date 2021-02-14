@@ -16,8 +16,8 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-function Modal({ showModal, setShowModal, currentSquare }) {
-  console.log("current square = " + currentSquare);
+function Modal({ showModal, setShowModal, currentSquare, activity }) {
+  // console.log("current square = " + currentSquare);
   const modalRef = useRef();
 
   const modalAnimation = useSpring({
@@ -57,7 +57,11 @@ function Modal({ showModal, setShowModal, currentSquare }) {
           <animated.div style={modalAnimation}>
             <div className="modalWrapper" showModal={showModal}>
               <div className="modalContent">
-                <ModalActivityForm currentSquare={currentSquare} />
+                <ModalActivityForm
+                  currentSquare={currentSquare}
+                  activity={activity}
+                  closeModal={() => setShowModal(false)}
+                />
               </div>
               <CloseModalButton
                 aria-label="Close modal"

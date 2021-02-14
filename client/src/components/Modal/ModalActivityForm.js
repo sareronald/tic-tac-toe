@@ -1,9 +1,9 @@
 import axios from "axios";
-// import React, { useEffect, useState } from "react";
-import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function ModalActivityForm({ currentSquare }) {
+function ModalActivityForm({ currentSquare, closeModal, activity }) {
+  const { tictactoeID } = useParams();
   const [activityState, setActivityState] = useState({
     currentSquare: currentSquare,
     activityName: "",
@@ -11,30 +11,31 @@ function ModalActivityForm({ currentSquare }) {
     taskDescription: "",
     resources: "",
     hints: "",
-    tictactoeID: "",
   });
-  const [squareState, setSquareState] = useState({});
-  // Load all activities and store with setActivityState
+
+  // this effect will check if an activity is set, in that case
+  // it will copy information over to local state
   useEffect(() => {
-    loadActivities();
+    console.log(activity);
+    if (!!activity) {
+      setActivityState({
+        ...activityState,
+        activityName: activity.activityName,
+        difficultyLavel: activity.difficultyLevel,
+        taskDescription: activity.taskDescription,
+        resources: activity.resources,
+        hints: activity.hints,
+      });
+    }
   }, []);
 
-  async function loadActivities() {
-    try {
-      const res = await axios.get("/api/activities");
-      // if { id }
-      return setSquareState(res.data);
-    } catch (err) {
-      return console.log(err);
-    }
-  }
-  // const { id } = useParams();
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/tictactoe/" + id)
-  //     .then((res) => setActivityState(res.data.id))
-  //     .catch((err) => console.log(err));
-  // });
+  useEffect(() => {
+    if (!!tictactoeID)
+      axios
+        .get("/api/tictactoe/" + tictactoeID)
+        .then((res) => setActivityState(res.data))
+        .catch((err) => console.log(err));
+  }, [tictactoeID]);
 
   const onChange = (event) => {
     setActivityState({
@@ -44,30 +45,30 @@ function ModalActivityForm({ currentSquare }) {
   };
 
   const newActivity = (newActivityData) => {
-    console.log(newActivityData);
-    return axios.post("/api/activity", {
-      currentSquare: newActivityData.currentSquare,
-      activityName: newActivityData.activityName,
-      difficultyLevel: newActivityData.difficultyLevel,
-      taskDescription: newActivityData.taskDescription,
-      resources: newActivityData.resources,
-      hints: newActivityData.hints,
-    });
+    return axios.post("/api/activity", newActivityData);
+  };
+
+  const updateActivity = (newActivityData) => {
+    return axios.put(`/api/activity/${activity.id}`, newActivityData);
   };
 
   const handleSubmit = async (event) => {
-    console.log(activityState);
     event.preventDefault();
-    const activity = {
+    console.log(activityState);
+    const activityData = {
       currentSquare: activityState.currentSquare,
       activityName: activityState.activityName,
       difficultyLevel: activityState.difficultyLevel,
       taskDescription: activityState.taskDescription,
       resources: activityState.resources,
       hints: activityState.hints,
+      tictactoeID: tictactoeID,
     };
     try {
-      await newActivity(activity);
+      if (!!activity) await updateActivity(activityData);
+      else await newActivity(activityData);
+      //closing modal if no errors
+      closeModal();
     } catch (error) {
       console.log(error);
     }
