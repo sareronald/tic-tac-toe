@@ -5,7 +5,7 @@ function Square({ onClick, hasActivity }) {
     <button
       className="squareBtn"
       onClick={onClick}
-      style={{ backgroundColor: hasActivity ? "green" : "transparent" }}
+      style={{ backgroundColor: hasActivity ? "orangered" : "lightgrey" }}
     ></button>
   );
 }
