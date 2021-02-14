@@ -25,7 +25,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route path="/tictactoe/:id" component={Tictactoe} />
+            <Route path="/tictactoe/:tictactoeID" component={Tictactoe} />
             <Route path="/about" component={About} />
           </div>
         </div>
