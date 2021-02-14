@@ -122,14 +122,14 @@ function AboutTictactoe() {
             </div>
           </div>
           <div className="card">
-            <div className="card-header accordianTitle" id="headingTwo">
+            <div className="card-header accordianTitle" id="headingThree">
               <h5 className="mb-0">
                 <button
                   className="btn btn-link collapsed"
                   data-toggle="collapse"
-                  data-target="#collapseTwo"
+                  data-target="#collapseThree"
                   aria-expanded="false"
-                  aria-controls="collapseTwo"
+                  aria-controls="collapseThree"
                 >
                   Designing TIC-TAC-TOE boards
                 </button>
@@ -164,7 +164,7 @@ function AboutTictactoe() {
                   <li>
                     Level 3: ANALYSE activity are designed to extend the
                     students and get them to analyse, critique or comment on a
-                    particular issue (with evidence).{" "}
+                    particular issue (with evidence).
                   </li>
                 </ul>
               </div>
