@@ -12,19 +12,18 @@ const logger = require("morgan");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "http://localhost:5000",
 };
 
 app.use(cors());
 app.use(logger("dev"));
-// const routes = require("./routes");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -36,7 +35,6 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(
   session({
-    // secret: "topsecret",
     secret: "process.env.SECRET",
     resave: true,
     saveUninitialized: true,
@@ -47,7 +45,6 @@ app.use(passport.session());
 
 // Routes
 // =============================================================
-// require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
