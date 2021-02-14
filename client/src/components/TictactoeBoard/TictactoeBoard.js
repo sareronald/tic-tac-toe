@@ -49,7 +49,10 @@ function TictactoeBoard() {
           setShowModal={setShowModal}
         />
         <div className="container">
-          <div className="tictactoe-board text-center">
+          <div
+            className="tictactoe-board text-center"
+            style={{ paddingTop: "80px" }}
+          >
             <div className="board-row">
               <Square
                 onClick={() => {

@@ -4,15 +4,11 @@ import Instructions from "../../components/Instructions/Instructions";
 import "./style.css";
 
 function Tictactoe() {
-  // const [tictactoeGridState, setTictactoe] = useState([]);
-  // useEffect(()=>{
-  //   loadCurrentTictactoe();
-  // }, []);
-
   return (
     <div className="container-fluid p0 m0">
+      <div className="row" style={{ paddingTop: "30px" }}></div>
       <div className="row">
-        <div className="col-sm-5" style={{ marginTop: "40px" }}>
+        <div className="col-sm-5">
           <TictactoeBoard />
         </div>
         <div className="col-sm-7 instructions">

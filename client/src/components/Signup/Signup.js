@@ -30,7 +30,7 @@ function Signup(props) {
 
   const onSubmit = (event) => {
     console.log(signupState);
-    let errors = {};
+    // let errors = {};
     handleValidation();
     event.preventDefault();
     const userData = {

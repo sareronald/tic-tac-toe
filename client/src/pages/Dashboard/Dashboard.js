@@ -6,7 +6,7 @@ import NewTictactoe from "../../components/NewTictactoe/NewTictactoe";
 function DashBoard() {
   return (
     <div className="pl-0 container-fluid">
-      <div className="row" style={{ padding: "40px" }}>
+      <div className="row" style={{ padding: "30px" }}>
         <div className="col-md-7 mt-5 mx-auto">
           <MyTictactoes />
         </div>
