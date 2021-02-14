@@ -179,7 +179,7 @@ module.exports = function (app) {
       taskDescription: req.body.taskDescription,
       hints: req.body.hints,
       resources: req.body.resources,
-      // tictactoeID: req.tictactoe.id,
+      tictactoeID: req.body.tictactoeID,
     })
       .then((dbTictactoe) => {
         res.status(200).json(dbTictactoe);
