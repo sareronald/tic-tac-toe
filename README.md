@@ -21,9 +21,12 @@ This application is a learning tool that allows teachers to create interactive t
 <br>
 
 ## Project Overview
-A user will be able to login and create, edit and delete a new tic-tac-toe grid. Each tic-tac-toe game will have nine different activities for the user to create and save. 
+A user will be able to login and create, edit and delete a new tic-tac-toe grid. Each tic-tac-toe game will have nine different activities for the user to create, save and edit. 
 
-<br>
+![noughts-crosses-black](https://user-images.githubusercontent.com/67722377/107911213-2cb63d00-6fb0-11eb-97ac-5fa1fe754990.png)
+
+### **What is a tic-tac-toe?**
+This strategy uses the familiar three-by-three grid of a tic-tac-toe board into which the teacher inserts different activities in each square. Once all nine activities have been entered and saved, the grid is shared with students. Students choose three activities to create 'three in a row,' just like playing the original game. To ensure all students are supported the activities are designed to support a variety of learning styles and abilities.
 
 ## User Story
 AS a teacher
@@ -60,6 +63,7 @@ Covid-19 has seen a dramatic change in the way secondary education is delivered.
   * [Axios npm](https://www.npmjs.com/package/axios)
   * [React](https://reactjs.org/docs/getting-started.html)
   * [React Router DOM](https://reactrouter.com/web/guides/quick-start)
+  
   * **Backend Technology:**
   * [Sequelize](https://www.npmjs.com/package/mysql)
   * [MySQL](https://www.npmjs.com/package/mysql)
@@ -71,7 +75,6 @@ Covid-19 has seen a dramatic change in the way secondary education is delivered.
   * [passport](https://www.npmjs.com/package/passport)
   * [passport-local](https://www.npmjs.com/package/passport-local)
   * [bycrypt.js](https://www.npmjs.com/package/bcryptjs)
-<br>
 
 ## Installation
 To install this tic-tac-toe app:
@@ -110,28 +113,29 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
 ## Screenshots
 #### **Landing Page**
 ![tictactoe_screenshot](https://user-images.githubusercontent.com/67722377/107864785-e11e6900-6eb3-11eb-8dc5-1496c7ea9921.png)
 <br>
 
-#### **My tic-tac-toe Page**
-![tic-tac-toe-myttt](https://user-images.githubusercontent.com/67722377/107864828-54c07600-6eb4-11eb-85f2-e283ff71135e.png)
+#### **My Tic-Tac-Toe Page**
+![tic-tac-toe-myTictactoes](https://user-images.githubusercontent.com/67722377/107910575-d3014300-6fae-11eb-9406-78432a6fad5e.png)
 <br>
 
 #### **Activity Page**
-![tic-tac-toe-activity](https://user-images.githubusercontent.com/67722377/107864833-73bf0800-6eb4-11eb-8917-413ce8cbfe6a.png)
+![tic-tac-toe-grid](https://user-images.githubusercontent.com/67722377/107910630-eca28a80-6fae-11eb-9296-c2ca62c1dbdd.png)
 <br>
 
+#### **Creating a new Activity**
+![tic-tac-toe-addActivity](https://user-images.githubusercontent.com/67722377/107910738-152a8480-6faf-11eb-8b0e-ae7ddc384600.png)
 
 ## Licence
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-<br>
 
 ## Acknowledgements
-* [Shutterstock](https://www.shutterstock.com/home) has been used to source the coloured 'tile' on the My tic-tac-toe page.
-<br>
+* [Shutterstock](https://www.shutterstock.com/home) has been used to source the coloured 'tile' on the My Tic-Tac-Toe page.
 
 ## Contributing
 Any contributions are appreciated. Be sure to review the contributing guidelines and code of conduct. By participating, you are expected to uphold this code. Use your best judgement and feel free to propose changes to this document in a pull request. Should you have any questions, feel free to contact me directly using the email below.
