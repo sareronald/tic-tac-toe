@@ -64,7 +64,7 @@ function NewTictactoe() {
           className="h2 mb-3 font-weight normal text-center"
           style={{ color: "#ffffff" }}
         >
-          + CREATE A TICTACTOE
+          + CREATE A TIC-TAC-TOE
         </h1>
         <div className="form-group">
           <label htmlFor="tictactoe_title">Tic-Tac-Toe Title *</label>
