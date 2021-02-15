@@ -50,15 +50,15 @@ function Instructions() {
           <form>
             <textarea
               ref={textAreaRef}
-              value="http://tictactoe/api/student/tictactoe/1"
-              style={{ width: "50%" }}
+              value="https://tictactoe-learning.herokuapp.com/student/tictactoe/1"
+              style={{ width: "100%" }}
             />
           </form>
           {
             /* Logical shortcut for only displaying the 
           button if the copy command exists */
             document.queryCommandSupported("copy") && (
-              <div>
+              <div className="text-center">
                 <button className="logBtn" onClick={copyToClipboard}>
                   Copy
                 </button>
