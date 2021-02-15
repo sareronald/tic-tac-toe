@@ -50,7 +50,7 @@ function Instructions() {
           <form>
             <textarea
               ref={textAreaRef}
-              value="http://tictactoe/api/activity/1"
+              value="http://tictactoe/api/student/tictactoe/1"
               style={{ width: "50%" }}
             />
           </form>

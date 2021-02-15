@@ -34,12 +34,12 @@ function Navbar() {
     <ul className="navbar-nav list-group list-group-horizontal">
       <li>
         <Link className="nav-links" to="/about">
-          ABOUT TICTACTOE
+          ABOUT TIC-TAC-TOE
         </Link>
       </li>
       <li>
         <Link className="nav-links" to="/dashboard">
-          MY TICTACTOEs
+          MY TIC-TAC-TOEs
         </Link>
       </li>
       <li>

@@ -34,7 +34,7 @@ function MyTictactoes() {
   return (
     <div>
       <div className="card" style={{ backgroundColor: "#EEEEEE" }}>
-        <h1 className="text-center">My TICTACTOEs</h1>
+        <h1 className="text-center">My TIC-TAC-TOEs</h1>
       </div>
       {myTictactoes.length ? (
         myTictactoes.map((myTictactoe, index) => (
